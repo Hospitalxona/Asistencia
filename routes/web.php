@@ -37,3 +37,4 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
         Route::get('my-qrcode', ['uses' => 'QrLoginController@ViewUserQrCode']);
         Route::post('qrLogin-autogenerate', ['uses' => 'QrLoginController@QrAutoGenerate']);
  });
+

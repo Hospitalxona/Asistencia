@@ -41,8 +41,11 @@ Starter Qr login
                     <input id="flipHorizontal" onchange="Page.changeHorizontal();" type="checkbox">
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="form-group">
                 <select class="form-control" id="camera-select"></select>
+                <br>
+                <br>
+                <br>
                 <div class="form-group">
                    
                     <button title="Decode Image" class="btn btn-default btn-sm" id="decode-img" type="button" data-toggle="tooltip"><span class="glyphicon glyphicon-upload"></span></button>
@@ -63,7 +66,7 @@ Starter Qr login
                 </div>
             </div>
          @else
-            <h1>Hallo! {{Sentinel::getUser()->first_name}}</h1>
+            <h1>Hola! {{Sentinel::getUser()->first_name}}</h1>
           @endif
 
  </div>
