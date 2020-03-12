@@ -14,6 +14,18 @@ Starter Qr login
           @if(!Sentinel::getUser())
             
             <div class="col-md-6">
+{{-- 
+                <select class="form-control" id="capa">
+                    @foreach($lista as $lis)
+                    <option value="{{$lis->id}}">{{$lis->nombre}}</option>
+                    @endforeach
+                </select> --}}
+
+                <input type="text" name="capacitacion" id="capacitacion" value="{{$capacitacion->nombre}}">
+
+                <br>
+                <br>
+
                 <div class="well" style="position: relative;display: inline-block;">
                     <canvas width="320" height="240" id="webcodecam-canvas"></canvas>
                     <div class="scanner-laser laser-rightBottom" style="opacity: 0.5;"></div>

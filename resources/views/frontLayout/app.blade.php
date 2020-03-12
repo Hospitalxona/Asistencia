@@ -91,7 +91,7 @@
 					@if (!Sentinel::getUser())
 						<li><a href="{{ url('login') }}">Login</a></li>
                         {{-- <li><a href="{{ url('qrLogin') }}">Qr Login</a></li> --}}
-						<li><a href="{{ url('qrLogin-option1') }}">Qr Login Option 2</a></li>
+						<li><a href="{{ url('lectorQR') }}">Qr Login Option 2</a></li>
 						<li><a href="{{ url('register') }}">Register</a></li>
 					@else
 						<li><a href="{{ url('/') }}">Home</a></li>
@@ -117,7 +117,7 @@
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    lectorQR
 	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	 <script type="text/javascript">
       $.ajaxSetup({
