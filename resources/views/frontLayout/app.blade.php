@@ -91,7 +91,7 @@
 					@if (!Sentinel::getUser())
 						<li><a href="{{ url('login') }}">Login</a></li>
                         {{-- <li><a href="{{ url('qrLogin') }}">Qr Login</a></li> --}}
-						<li><a href="{{ url('lectorQR') }}">Qr Login Option 2</a></li>
+						<li><a href="{{ url('capacitaciones') }}">Capacitaciones</a></li>
 						<li><a href="{{ url('register') }}">Register</a></li>
 					@else
 						<li><a href="{{ url('/') }}">Home</a></li>
