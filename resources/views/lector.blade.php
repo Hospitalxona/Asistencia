@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html>
+@extends('frontLayout.app')
+@section('title')
+
+Asistencía
+
+@stop
+@section('content')
+
   <head>
     <title>Instascan</title>
      <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" >
     </script>	
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
-
-    {{-- <script type="text/javascript" src="instascan.min.js"></script> --}}
 
   </head>
   <body>
 
+    
+
+    <form role="form" method="POST" action="{{ route('crear') }}">
+        {{ csrf_field() }}
+    
+        <strong> <input class="form-control" style="color:#006D6C;" type="text" name="capacitacion" id="capa" value="{{$capacitacion->id}}" readonly></strong>
+<br>
+        <strong> <input class="form-control" style="color:#006D6C;" type="text" name="nombreca" id="nombreca" value="{{$nombre->nombre}}" readonly></strong>
+    
+        <input type="text" name="caja_valor" id="caja_valor" value="" hidden>
+        <input type="submit" value="limpiar" id="guarda" hidden>
+        </form>
+
+        
     <div align="center">
 
 
@@ -36,15 +54,6 @@
   
 
 
-
-<form role="form" method="POST" action="{{ route('crear') }}">
-    {{ csrf_field() }}
-
-    <strong> <input class="form-control" style="color:#006D6C;" type="text" name="capacitacion" id="capa" value="{{$capacitacion->id}}" readonly></strong>
-
-    <input type="text" name="caja_valor" id="caja_valor" value="" hidden>
-    <input type="submit" value="limpiar" id="guarda" hidden>
-    </form>
 
     
    
@@ -92,4 +101,4 @@
     
 
  </body>
-</html>
+ @endsection
