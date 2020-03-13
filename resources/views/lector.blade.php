@@ -100,6 +100,10 @@ Asistencía
   filter: hue-rotate(90deg);
 }
 /*END ROTATE*/
+
+b{
+    color: #F00F6E;
+}
 </style>
 
   </head>
@@ -135,7 +139,11 @@ Asistencía
 
 <br>
 
-<h3 id="registro">"registro de Usuarios a la Capacitacion"</h3>
+<div class="alert alert-primary" role="alert"  id="registro">
+    <strong> " Usuarios"</strong> <b>registrados a la capacitación. </b>
+  </div>
+
+
 
 </div>
 
@@ -165,7 +173,7 @@ Asistencía
             usuarios = content;
             document.getElementById('dato').value= usuarios;
             console.log(usuarios);
-            document.getElementById('registro').innerHTML ="<h3> <font color='red'>Usuario registrado correctamente </font</h3>";
+            document.getElementById('registro').innerHTML ="<button type='button' class='btn btn-success btn-lg btn-block' >Acceso Correcto <span class='badge badge-light'>+</span></button>";
             document.getElementById("caja_valor").value = usuarios;
             document.getElementById("guarda").click();
             beep();
