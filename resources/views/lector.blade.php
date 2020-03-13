@@ -38,7 +38,9 @@ Asistencía
         
     <h3 id="cabecera">{{$nombre->nombre}}</h3>
 <br>
-    <video id="preview"></video>
+    <video id="preview" height="250">
+        
+    </video>
 
 
 
