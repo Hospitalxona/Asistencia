@@ -36,7 +36,7 @@ Asistencía
 
 
         
-    <h3 id="cabecera">Capacitacion: COVID-19 Coronavirus !!!</h3>
+    <h3 id="cabecera">{{$nombre->nombre}}</h3>
 <br>
     <video id="preview"></video>
 

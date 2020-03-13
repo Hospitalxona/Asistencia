@@ -7,13 +7,17 @@ View User Qr Code
 <!-- qr code  -->
 <div class=" text-center">
 @if(Sentinel::getUser()->QRpassword)
-  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->color(38, 38, 38, 0.85)->backgroundColor(255, 255, 255, 0.82)->size(200)->generate(Sentinel::getUser()->QRpassword)) !!} ">
-  <p> This is your qr code , Download it into your mobile</p>
+  <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->color(38, 38, 38, 0.85)->backgroundColor(255, 255, 255, 0.82)->size(300)->generate(Sentinel::getUser()->QRpassword)) !!} ">
+  <br>
+  <br>
+  <p> Este es tu Código QR , Descargalo en tu dispositivo</p>
   @endif
-  <button type="submit" id="autogenerate_qr" class="btn btn-default sub6">Change Now</button>
+  <button type="submit" id="autogenerate_qr" class="btn btn-default sub6">Cámbialo Ahora</button>
 </div>
 
 <!--   end qr code -->
+
+
 
 
 @stop
@@ -22,7 +26,7 @@ View User Qr Code
 <script>
    //Delete Items
   $('#autogenerate_qr').click(function(){
-      if(confirm('Are you sure you want to generate the qe code')){
+      if(confirm('¿Estas seguro de generar tu Código QR?')){
 
          $.ajax({
             type: "POST",
