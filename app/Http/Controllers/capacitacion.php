@@ -21,7 +21,7 @@ class capacitacion extends Controller
     {
         $capacitacion = capacitaciones::where('id','=',$id)->get();
         // return view('capacitaciones')
-        return view('auth.QrLogin2')
+        return view('lector')
         ->with("capacitacion",$capacitacion[0]);
 
         

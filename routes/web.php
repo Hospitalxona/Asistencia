@@ -40,3 +40,6 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 
  Route::get('capacitaciones','capacitacion@listacapacitacion')->name('listacapacitacion');
  Route::get('iniciarcapa/{id}', 'capacitacion@iniciarcapa')->name('iniciarcapa');
+ Route::get('lector','Asistencia@lector')->name('lector');
+ Route::post('crear','Asistencia@crear')->name('crear');
+

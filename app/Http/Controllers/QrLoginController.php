@@ -19,12 +19,14 @@ class QrLoginController extends Controller
 	{
 		return view('backEnd.users.viewqrcode');
 	}
+	
 	public function checkUser(Request $request) {
 		 $result =0;
 			if ($request->data) {
 				$user = User::where('QRpassword',$request->data)->first();
 				if ($user) {
 					Sentinel::authenticate($user);
+					
 				    $result =1;
 				 }else{
 				 	$result =0;
@@ -42,8 +44,10 @@ class QrLoginController extends Controller
 		if ($request->action = 'updateqr') {
 			$user = Sentinel::getUser();
 			if ($user) {
-				$qrLogin=bcrypt($user->personal_number.$user->email.str_random(40));
-		        $user->QRpassword= $qrLogin;
+				$qrLogin=($user->personal_number.$user->first_name);
+				$email=($user->email);
+				$lastname=($user->last_name);
+		        $user->QRpassword= $qrLogin." ".$lastname;
 		        $user->update();
 		        $result=1;
 			}

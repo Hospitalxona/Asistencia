@@ -9,6 +9,7 @@ Capacitaciones
 @section('content')
 
 
+
 <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
@@ -36,3 +37,5 @@ Capacitaciones
   </table>
 
 @endsection
+
+

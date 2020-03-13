@@ -6,7 +6,7 @@ Starter Qr login
 
 @stop
 @section('style')
-<link href=" {{ URL::asset('/qr_login/option2/css/style.css') }}" rel="stylesheet">
+<link href=" {{ asset('qr_login/option2/css/style.css') }}" rel="stylesheet">
 @stop
 @section('content')
 <div class="container" id="QR-Code">
@@ -14,15 +14,9 @@ Starter Qr login
           @if(!Sentinel::getUser())
             
             <div class="col-md-6">
-{{-- 
-                <select class="form-control" id="capa">
-                    @foreach($lista as $lis)
-                    <option value="{{$lis->id}}">{{$lis->nombre}}</option>
-                    @endforeach
-                </select> --}}
 
-                <input type="text" name="capacitacion" id="capacitacion" value="{{$capacitacion->nombre}}">
 
+     
                 <br>
                 <br>
 
@@ -99,8 +93,8 @@ Starter Qr login
                 success: function(data) {
                   console.log(data);
                   if (data==1) {
-                    //location.reload()
-                    $(location).attr('href', '{{url('/')}}');
+                   // location.reload()
+                  $(location).attr('href', '{{url('/')}}');
                   }else{
                    return confirm('There is no user with this qr code'); 
                   }
