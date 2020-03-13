@@ -111,13 +111,12 @@
 	<hr/>
 
 	<div class="container">
-	    &copy; {{ date('Y') }}. Created by <a href="http://www.rolandalla.com">Roland Alla</a>
+	    &copy; {{ date('Y') }}. Created by <a href="http://www.B&DSolutions.com"> B&D Solutions</a>
 	    <br/>
 	</div>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    lectorQR
 	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	 <script type="text/javascript">
       $.ajaxSetup({

@@ -102,9 +102,9 @@
             ],
             "authors": [
                 {
-                    "name": "Cartalyst LLC",
-                    "email": "help@cartalyst.com",
-                    "homepage": "https://cartalyst.com"
+                    "name": "Brayan C",
+                    "email": "manzanocortesbrayan@gmail.com",
+                    "homepage": ""
                 }
             ],
             "description": "PHP 5.4+ Fully-featured Authentication & Authorization System",
@@ -1235,8 +1235,8 @@
             ],
             "authors": [
                 {
-                    "name": "Roland Alla",
-                    "email": "alla.roland@gmail.com"
+                    "name": "Brayan B&D Solutions",
+                    "email": "manzanocortesbrayan@gmail.com"
                 }
             ],
             "description": "This is a CRUD generator for Laravel 5.4",

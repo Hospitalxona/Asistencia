@@ -20,10 +20,10 @@ Home Page
     @endif
 
 <div class="links">
-    <a href="https://github.com/roladn">GitHub</a>
-    <a href="https://rolandalla.com/">My Website</a>
-    <a href="https://www.facebook.com/rolandalla91">Facebook</a>
-    <a href="https://www.youtube.com/channel/UCgW6jORopjpon_42vzi7YkQ">Youtube</a>
+    <a href="https://github.com/Hospitalxona/Asistencia">GitHub</a>
+    <a href="#">My Website</a>
+    <a href="#">Facebook</a>
+    <a href="#">Youtube</a>
 </div>
 </div>
 @endsection
