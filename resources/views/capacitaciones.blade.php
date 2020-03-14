@@ -9,6 +9,14 @@ Capacitaciones
 @section('content')
 
 
+<style>
+
+a{
+color: aliceblue;
+}
+
+</style>
+
 
 <table class="table table-striped">
     <thead class="thead-dark">
@@ -19,6 +27,7 @@ Capacitaciones
         <th scope="col"><font color="#2325E8">Hora</font></th>
         <th scope="col"><font color="#2325E8">Lugar</font></th>
         <th scope="col"><font color="#2325E8">Comenzar</font></th>
+        <th scope="col"><font color="#2325E8">Finalizar</font></th>
         
       </tr>
     </thead>
@@ -30,7 +39,10 @@ Capacitaciones
         <th>{{$lis->fecha}}</th>
         <th>{{$lis->hora}}</th>
         <th>{{$lis->lugar}}</th>
-        <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}"><i class="fa fa-play" aria-hidden="true">Iniciar </font></i></a></button></th>
+        
+        <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}"><i class="fa fa-play" aria-hidden="true"> Iniciar</i></a></button></th>
+
+        <th><button type="button" class="btn btn-danger" ><a href="{{URL::action('capacitacion@desactivarcapa',['id'=>$lis->id])}}"><i class="fa fa-times" aria-hidden="true"> Finalizar</i></a></button></th>
       </tr>
       @endforeach
     </tbody>

@@ -7,6 +7,10 @@ use App\Asistencias;
 use App\Capacitaciones;
 use DB;
 
+use Carbon\Carbon;
+
+$date = Carbon::now();
+
 class Asistencia extends Controller
 {
     public function lector()
@@ -17,12 +21,23 @@ class Asistencia extends Controller
     public function crear(Request $request)
     {
 
+         //validaciones del formulario
+  
+
+       $date = Carbon::now();
+
+       $time = Carbon::now();
+
+       $date = $date->format('Y-m-d');
+
+       $time = $time->toTimeString();  
+
        $id = $request->capacitacion;
 
        $asis = new Asistencias;
        $asis->user = $request->caja_valor;
-       $asis->fecha = "2020-03-12";
-       $asis->hora = "10:00";
+       $asis->fecha = $request->fecha;
+       $asis->hora = $request->time;
        $asis->id = $request->capacitacion;
        $asis->save();
 
@@ -36,7 +51,9 @@ class Asistencia extends Controller
     //    return redirect()->route('lector')
        return view('lector')
        ->with("capacitacion",$capacitacion[0])
-       ->with("nombre",$nombre[0]);
+       ->with("nombre",$nombre[0])
+       ->with("date",$date)
+       ->with("time",$time);
 
 
 

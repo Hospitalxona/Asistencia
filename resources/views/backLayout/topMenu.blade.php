@@ -11,4 +11,20 @@
                     <img src="{{ URL::asset('/images/img.jpg') }}" alt="">{{Sentinel::getUser()->first_name.' ' .Sentinel::getUser()->last_name }}
                     <span class=" fa fa-angle-down"></span>
                   </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                   
+                    <li><a href="javascript:;">Cerrar Sesión</a></li>
+                
+      <li><button class="btn btn-primary btn-lg btn-block register-button" type="submit" >Logout</button> </li>
+                       {!! Form::close() !!}
+                  </ul>
+                </li>
+
+               
+                      
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </nav>

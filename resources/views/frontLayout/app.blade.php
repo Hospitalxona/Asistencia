@@ -83,7 +83,7 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="{{url('/')}}">Sarter Laravel 5.4</a>
+	            <a class="navbar-brand" href="{{url('/')}}">Sarter Laravel</a>
 	        </div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
@@ -94,7 +94,7 @@
 						<li><a href="{{ url('register') }}">Register</a></li>
 					@else
 						<li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{url('my-qrcode')}}">My Qr Code</a></li>
+                        <li><a href="{{url('my-qrcode')}}">Panel de Control</a></li>
                         <li><a href="{{ url('capacitaciones') }}">Capacitaciones</a></li>
                         <li><a href="{{url('user/logout/now')}}">Logout</a></li>
 					@endif

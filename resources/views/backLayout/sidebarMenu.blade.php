@@ -26,24 +26,38 @@
       <h3>General</h3>
       <ul class="nav side-menu">
       @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
-        <li><a><i class="fa fa-users"></i>Users <span class="fa fa-chevron-down"></span></a>
+        <li><a><i class="fa fa-users"></i>Usuarios <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
-            <li><a href="{{route('user.index')}}">All users</a></li>
-            <li><a href="{{route('user.create')}}">New user</a></li>
+            <li><a href="{{route('user.index')}}">Todos los Usuarios</a></li>
+            <li><a href="{{route('user.create')}}">Nuevo Usuario</a></li>
           </ul>
         </li>
       @endif
-      @if (Sentinel::getUser()->hasAnyAccess(['role.*']))
+
+      @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
+      <li><a><i class="fa fa-plus-circle" aria-hidden="true"></i>Capacitaciones <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          
+          <li><a href="{{route('createcapaci')}}">
+    <i class="fa fa-plus-square" aria-hidden="true"></i>Nueva Capacitación</a></li>
+
+    <li><a href="{{ url('capacitaciones') }}">
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i></i>Lista de Capacitaciones</a></li>
+        </ul>
+      </li>
+    @endif
+
+      {{-- @if (Sentinel::getUser()->hasAnyAccess(['role.*']))
         <li><a><i class="fa fa-cog"></i> Roles <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="{{route('role.index')}}">All Roles</a></li>
             <li><a href="{{route('role.create')}}">New Role</a></li>
           </ul>
         </li>
-      @endif
+      @endif --}}
       <li><a href="{{url('my-qrcode')}}">My Qr Code</a></li>
 
-      <li><a href="{{ url('capacitaciones') }}">Capacitaciones</a></li>
+     
         <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="form.html">General Form</a></li>

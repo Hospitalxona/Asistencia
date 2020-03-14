@@ -10,10 +10,8 @@ Asistencía
     <title>Instascan</title>
      <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" >
     </script>	
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> 
+
+    
 
 <style>
 
@@ -114,40 +112,68 @@ b{
     <form role="form" method="POST" action="{{ route('crear') }}">
         {{ csrf_field() }}
     
+        <div class="form-row">
+          <div class="col-md-1 mb-3">
+
         <strong> <input class="form-control" style="color:#006D6C;" type="text" name="capacitacion" id="capa" value="{{$capacitacion->id}}" readonly></strong>
-<br>
+
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+
         <strong> <input class="form-control" style="color:#006D6C;" type="text" name="nombreca" id="nombreca" value="{{$nombre->nombre}}" readonly></strong>
-    
+        
+        </div>
+
+        <div class="col-md-2 mb-3">
+
+          <strong> <input class="form-control" style="color:#006D6C;" type="text" name="fecha" id="fecha" value="{{$date}}" readonly></strong>
+          
+          </div>
+
+          <div class="col-md-2 mb-3">
+
+            <strong> <input class="form-control" style="color:#006D6C;" type="text" name="time" id="time" value="{{$time}}" readonly></strong>
+            
+            </div>
+
+            <div class="col-md-3 mb-3">
+
+              <strong> <input class="form-control" style="color:#006D6C;" type="text" name="asis" id="asis" value="Asistencia a la capacitación" readonly></strong>
+              
+              </div>
+
+          
+  
         <input type="text" name="caja_valor" id="caja_valor" value="" hidden>
+
         <input type="submit" value="limpiar" id="guarda" hidden>
         </form>
-
-        
-    <div align="center">
-
-
-        
-    <h3 id="cabecera">{{$nombre->nombre}}</h3>
 <br>
-<table class="button2 b-blue rot-135">
-    <TR><TD>
-    <video id="preview" height="250"></video>
-    </TD></TR>
-</table>
-
-
-
 <br>
+        
+<div align="center">
 
-<div class="alert alert-primary" role="alert"  id="registro">
+              
+          <h3 id="cabecera">{{$nombre->nombre}}</h3>
+      <br>
+      <table class="button2 b-blue rot-135">
+          <TR><TD>
+          <video id="preview" height="250"></video>
+          </TD></TR>
+      </table>
+
+      <input type="text" name="dato" id="dato" value="" hidden>
+
+    <div class="alert alert-primary" role="alert"  id="registro">
     <strong> " Usuarios"</strong> <b>registrados a la capacitación. </b>
-  </div>
-
-
+    </div>
 
 </div>
 
-<input type="text" name="dato" id="dato" value="" hidden>
+
 
 
   
