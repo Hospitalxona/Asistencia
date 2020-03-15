@@ -18,8 +18,23 @@ color: aliceblue;
 </style>
 
 
-<table class="table table-striped">
-    <thead class="thead-dark">
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+
+
+<script type="">
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+  
+</script>
+
+
+
+<table  class="table table-hover table-dark table-bordered" id="example">
+    <thead>
       <tr>
         <th scope="col"><font color="#2325E8">#</font></th>
         <th scope="col"><font color="#2325E8">Capacitación</font></th>

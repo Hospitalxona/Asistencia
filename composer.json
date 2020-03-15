@@ -11,7 +11,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "roland/crud": "dev-master",
-        "simplesoftwareio/simple-qrcode": "~1"
+        "simplesoftwareio/simple-qrcode": "~1",
+        "yajra/laravel-datatables-oracle": "7.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

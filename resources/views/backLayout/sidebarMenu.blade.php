@@ -35,7 +35,7 @@
       @endif
 
       @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
-      <li><a><i class="fa fa-plus-circle" aria-hidden="true"></i>Capacitaciones <span class="fa fa-chevron-down"></span></a>
+      <li><a><i class="fa fa-th-list" aria-hidden="true"></i>Capacitaciones <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           
           <li><a href="{{route('createcapaci')}}">
@@ -55,7 +55,7 @@
           </ul>
         </li>
       @endif --}}
-      <li><a href="{{url('my-qrcode')}}">My Qr Code</a></li>
+      <li><a href="{{url('my-qrcode')}}"><i class="fa fa-qrcode" aria-hidden="true"></i>My Qr Code</a></li>
 
      
         <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
