@@ -1,22 +1,26 @@
 
 <div class="left_col scroll-view">
   <div class="navbar nav_title" style="border: 0;">
-    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-paw"></i> <span>Laravel Starter</span></a>
+    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-user-md" aria-hidden="true"></i><span> Laravel Starter</span></a>
   </div>
 
   <div class="clearfix"></div>
 
+
+      
+
   <!-- menu profile quick info -->
   <div class="profile">
     <div class="profile_pic">
-      <img src="{{ URL::asset('/images/img.jpg') }}" alt="..." class="img-circle profile_img">
+      <img src="{{ URL::asset('/images/nurse2.jpg') }}" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
       <span>Welcome,</span>
-      <h2>{{Sentinel::getUser()->first_name.' ' .Sentinel::getUser()->last_name }}</h2>
+      <h2>{{Sentinel::getUser()->first_name  .' ' .Sentinel::getUser()->last_name }}</h2>
     </div>
   </div>
   <!-- /menu profile quick info -->
+
 
   <br />
 
@@ -46,6 +50,17 @@
         </ul>
       </li>
     @endif
+
+    @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
+    <li><a><i class="fa fa-file-text" aria-hidden="true"></i>Lista de Asistencia <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        
+        <li><a href="{{route('asistencia')}}">
+          <i class="fa fa-check-square-o" aria-hidden="true"></i>Usuarios Registrados</a></li>
+
+      </ul>
+    </li>
+  @endif
 
       {{-- @if (Sentinel::getUser()->hasAnyAccess(['role.*']))
         <li><a><i class="fa fa-cog"></i> Roles <span class="fa fa-chevron-down"></span></a>

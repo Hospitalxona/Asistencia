@@ -15,8 +15,10 @@
                    
                     <li><a href="javascript:;">Cerrar Sesión</a></li>
                 
-      <li><button class="btn btn-primary btn-lg btn-block register-button" type="submit" >Logout</button> </li>
-                       {!! Form::close() !!}
+      <li> <a href="{{url('user/logout/now')}}"><button class="btn btn-warning btn-lg btn-block register-button" type="submit" > Logout</a></button> </li>
+                
+
+                  
                   </ul>
                 </li>
 

@@ -59,4 +59,14 @@ class Asistencia extends Controller
 
     // dd($post);
     }
+
+    public function asistencia()
+    {
+        $asis = \DB::select("SELECT asi.`ida` AS ida,asi.`user` AS 'user',asi.`fecha` AS fecha, asi.`hora` AS hora,ca.`id` AS id,ca.`nombre` AS nombre
+        FROM asistencias AS asi
+        INNER JOIN capacitaciones AS ca ON ca.`id`= asi.`id`");
+        return view('asistenciacapaci')
+        ->with('asis',$asis);
+
+    }
 }
