@@ -5,19 +5,22 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
+        "php": ">=7.0",
         "cartalyst/sentinel": "2.0.*",
-        "laravel/framework": "5.4.*",
+        "dompdf/dompdf": "^0.8.5",
+        "dragonmantank/cron-expression": "^2.3",
+        "filp/whoops": "~2.0",
+        "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
+        "maatwebsite/excel": "^3.1",
         "roland/crud": "dev-master",
-        "simplesoftwareio/simple-qrcode": "~1",
-        "yajra/laravel-datatables-oracle": "7.*"
+        "simplesoftwareio/simple-qrcode": "~1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.7"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "classmap": [

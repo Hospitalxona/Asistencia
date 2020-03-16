@@ -1,5 +1,7 @@
 <?php
 
+use App\Exports\AsistenciasExport;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,4 +49,31 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::get('lector','Asistencia@lector')->name('lector');
  Route::post('crear','Asistencia@crear')->name('crear');
  Route::get('desactivarcapa/{id}','capacitacion@desactivarcapa')->name('desactivarcapa'); //desactivatr capacitación
+ Route::get('buscarasistencia/', 'Asistencia@buscarasistencia')->name('buscarasistencia'); 
+
+
+ // excel
+
+ Route::get('users/export/', 'UsersController@export');
+
+
+ Route::get('Asistencias/export/', 'Asistencia@export');
+
+ Route::get('excel', function (AsistenciasExport $asistenciasExport ){
+
+// $asistenciasExport->store('Asistencias.xlsx','public'); 
+
+// $asistenciasExport->store('Asistencias.pdf','public');
+
+// $asistenciasExport->store('Asistencias.htm','public');
+
+// $asistenciasExport->store('Asistencias.csv','public');
+
+
+return $asistenciasExport;
+
+
+return 'Listo';
+
+ });
 

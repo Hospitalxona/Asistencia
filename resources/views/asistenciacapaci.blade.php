@@ -23,13 +23,43 @@ color: aliceblue;
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
 
 
-<script type="">
+{{-- <script type="">
 
 $(document).ready(function() {
     $('#example').DataTable();
 } );
   
-</script>
+</script> --}}
+
+
+<form action="{{ route('buscarasistencia') }}" method="get" class="form-horizontal files">
+  {{ csrf_field() }}
+
+<div class="form-group">
+
+  <div class="col-sm-3">
+
+    <input type="search" class="form-control" name="buscador" id="buscador" placeholder="Buscar Capacitación">
+
+  </div>
+
+  <div class="col-sm-3">
+
+      <button type="submit" class="btn btn-info">
+        <i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+
+      <button type="submit" class="btn btn-danger">
+        <a href="{{route('asistencia')}}">
+          <i class="fa fa-undo" aria-hidden="true"></i> Regresar</a></li></button>
+      
+  </div> 
+
+</div>  
+
+
+ 
+
+</form>
 
 
 

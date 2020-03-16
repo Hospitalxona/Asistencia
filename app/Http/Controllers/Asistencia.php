@@ -7,6 +7,10 @@ use App\Asistencias;
 use App\Capacitaciones;
 use DB;
 
+use App\Exports\AsistenciasExport;
+use Maatwebsite\Excel\Facades\Excel;
+
+
 use Carbon\Carbon;
 
 $date = Carbon::now();
@@ -69,4 +73,23 @@ class Asistencia extends Controller
         ->with('asis',$asis);
 
     }
+
+    public function buscarasistencia(Request $request)
+    {
+
+        $nombre = $request->get('buscador');
+
+        $asis = \DB::select("SELECT asi.`ida` AS ida,asi.`user` AS 'user',asi.`fecha` AS fecha, asi.`hora` AS hora,ca.`id` AS id,ca.`nombre` AS nombre
+        FROM asistencias AS asi
+        INNER JOIN capacitaciones AS ca ON ca.`id`= asi.`id`
+        WHERE ca.`nombre` = ?",[$nombre]);
+        return view('asistenciacapaci')
+        ->with('asis',$asis);
+    }
+
+    public function export() 
+    {
+        return Excel::download(new AsistenciasExport, 'Asistencias.xlsx');
+    }
+
 }

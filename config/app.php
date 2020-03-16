@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -241,6 +242,7 @@ return [
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
          //QR GEERATOR
          'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
