@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asistencias;
+use App\listaases;
 use App\Capacitaciones;
 use DB;
 
@@ -87,9 +88,13 @@ class Asistencia extends Controller
         ->with('asis',$asis);
     }
 
-    public function export() 
+    public function export(Request $request) 
     {
-        return Excel::download(new AsistenciasExport, 'Asistencias.xlsx');
+
+        $nombre = $request->get('buscador');
+
+        // return Excel::download(new AsistenciasExport, 'Asistencias.xlsx');
+        return (new AsistenciasExport($nombre))->download('Asistencias.xlsx');
     }
 
 }

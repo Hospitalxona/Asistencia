@@ -57,7 +57,7 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::get('users/export/', 'UsersController@export');
 
 
- Route::get('Asistencias/export/', 'Asistencia@export');
+ Route::get('Asistencias/export/', 'Asistencia@export')->name('export');
 
  Route::get('excel', function (AsistenciasExport $asistenciasExport ){
 

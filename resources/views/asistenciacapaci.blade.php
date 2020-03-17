@@ -15,24 +15,34 @@ a{
 color: aliceblue;
 }
 
+p{
+  color:limegreen;
+  font-style: italic;
+  
+}
 </style>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
 
 
-{{-- <script type="">
+
+
+<script type="">
 
 $(document).ready(function() {
     $('#example').DataTable();
 } );
   
-</script> --}}
+</script> 
 
 
-<form action="{{ route('buscarasistencia') }}" method="get" class="form-horizontal files">
+
+
+<form action="{{ route('export') }}" method="get" class="form-horizontal files">
   {{ csrf_field() }}
 
 <div class="form-group">
@@ -43,21 +53,30 @@ $(document).ready(function() {
 
   </div>
 
-  <div class="col-sm-3">
+  <div class="col">
+{{-- 
+      <button type="submit" class="btn btn-info" id="search">
+        <i class="fa fa-search" aria-hidden="true"></i> Buscar</button> --}}
 
-      <button type="submit" class="btn btn-info">
-        <i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
 
-      <button type="submit" class="btn btn-danger">
+        {{-- <label for="" class="col-md-4 control-label"> Exportar </label> --}}
+
+        <button type="submit" class="btn btn-link">
+          <img src="{{ URL::asset('/images/excel.png') }}" alt="Generar Reporte en excel dependiendo el criterio dado por la busqueda" width="35" title="Export">
+          <strong> <p>Exportar</p> </strong> 
+        </button>
+
+        {{-- <a href="{{route('export')}}"><img src="{{ URL::asset('/images/excel.png') }}" alt="" width="50" id="excel"></a> --}}
+
+
+      {{-- <button type="submit" class="btn btn-danger">
         <a href="{{route('asistencia')}}">
           <i class="fa fa-undo" aria-hidden="true"></i> Regresar</a></li></button>
-      
-  </div> 
+   --}}
+  </div>         
+
 
 </div>  
-
-
- 
 
 </form>
 
