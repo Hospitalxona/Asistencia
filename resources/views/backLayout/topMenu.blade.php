@@ -13,9 +13,10 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                    
-                    <li><a href="javascript:;">Cerrar Sesión</a></li>
-                
-      <li> <a href="{{url('user/logout/now')}}"><button class="btn btn-warning btn-lg btn-block register-button" type="submit" > Logout</a></button> </li>
+             
+          
+
+      <li> <a href="{{url('user/logout/now')}}"><button class="btn btn-warning btn-lg btn-block register-button" type="submit" > Salir</a></button> </li>
                 
 
                   

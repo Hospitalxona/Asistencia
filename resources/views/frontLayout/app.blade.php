@@ -68,7 +68,13 @@
             }
             body {
 			padding-top: 70px;
-		}
+        }
+        
+        /* #foot{
+
+            background-color:ghostwhite;
+           
+        } */
         </style>
 	@yield('style')
 </head>
@@ -83,20 +89,32 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="{{url('/')}}">Sarter Laravel</a>
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <i class="fa fa-university" aria-hidden="true"></i> Inicio</a>
 	        </div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
-					@if (!Sentinel::getUser())
-						<li><a href="{{ url('login') }}">Login</a></li>
+                    @if (!Sentinel::getUser())
+                       <li><a href="{{ url('event') }}">
+                        <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
+                        <li><a href="{{ url('login') }}">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar sesión</a></li>
                         {{-- <li><a href="{{ url('qrLogin') }}">Qr Login</a></li> --}}
-						<li><a href="{{ url('register') }}">Register</a></li>
+                        <li><a href="{{ url('register') }}">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse</a></li>
+                        
 					@else
-						<li><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{url('my-qrcode')}}">Panel de Control</a></li>
-                        <li><a href="{{ url('capacitaciones') }}">Capacitaciones</a></li>
-                        <li><a href="{{url('user/logout/now')}}">Logout</a></li>
+                        <li><a href="{{ url('/') }}">
+                            <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+                        <li><a href="{{ url('event') }}">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
+                        <li><a href="{{url('my-qrcode')}}">
+                            <i class="fa fa-hospital-o" aria-hidden="true"></i> Panel de Control</a></li>
+                        <li><a href="{{ url('capacitaciones') }}">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Capacitaciones</a></li>
+                        <li><a href="{{url('user/logout/now')}}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
 					@endif
 				</ul>
 			</div>
@@ -110,9 +128,10 @@
 
 	<hr/>
 
-	<div class="container">
-	    &copy; {{ date('Y') }}. Created by <a href="http://www.B&DSolutions.com"> B&D Solutions</a>
-	    <br/>
+	<div class="container" id="foot">
+	    &copy; {{ date('Y') }}. <strong> Created by <a href="#"> B&D Solutions</a>
+        </strong> 
+            <br/>
 	</div>
 
 	<!-- Scripts -->

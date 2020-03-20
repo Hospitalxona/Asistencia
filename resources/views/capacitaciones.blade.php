@@ -36,13 +36,13 @@ $(document).ready(function() {
 <table  class="table table-hover table-dark table-bordered" id="example">
     <thead>
       <tr>
-        <th scope="col"><font color="#2325E8">#</font></th>
-        <th scope="col"><font color="#2325E8">Capacitación</font></th>
-        <th scope="col"><font color="#2325E8">Fecha</font></th>
-        <th scope="col"><font color="#2325E8">Hora</font></th>
-        <th scope="col"><font color="#2325E8">Lugar</font></th>
-        <th scope="col"><font color="#2325E8">Comenzar</font></th>
-        <th scope="col"><font color="#2325E8">Finalizar</font></th>
+        <th scope="col"><font color="#900C3F  ">#</font></th>
+        <th scope="col"><font color="#900C3F  ">Capacitación</font></th>
+        <th scope="col"><font color="#900C3F  ">Fecha</font></th>
+        <th scope="col"><font color="#900C3F  ">Hora</font></th>
+        <th scope="col"><font color="#900C3F  ">Lugar</font></th>
+        <th scope="col"><font color="#900C3F  ">Comenzar</font></th>
+        <th scope="col"><font color="#900C3F  ">Finalizar</font></th>
         
       </tr>
     </thead>

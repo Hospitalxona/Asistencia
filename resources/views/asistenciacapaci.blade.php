@@ -20,6 +20,10 @@ p{
   font-style: italic;
   
 }
+
+#black{
+  color: black;
+}
 </style>
 
 
@@ -47,36 +51,38 @@ $(document).ready(function() {
 
 <div class="form-group">
 
-  <div class="col-sm-3">
-
-    <input type="search" class="form-control" name="buscador" id="buscador" placeholder="Buscar Capacitación">
+  <div class="col-sm-4">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+    <input type="search" class="form-control is-invalid" name="buscador" id="validationDefault03" placeholder="Buscar Capacitación" required>
+    </div>
+    
 
   </div>
 
-  <div class="col">
-{{-- 
-      <button type="submit" class="btn btn-info" id="search">
-        <i class="fa fa-search" aria-hidden="true"></i> Buscar</button> --}}
+  <div class="col-sm-2">
 
-
-        {{-- <label for="" class="col-md-4 control-label"> Exportar </label> --}}
 
         <button type="submit" class="btn btn-link">
           <img src="{{ URL::asset('/images/excel.png') }}" alt="Generar Reporte en excel dependiendo el criterio dado por la busqueda" width="35" title="Export">
           <strong> <p>Exportar</p> </strong> 
         </button>
 
-        {{-- <a href="{{route('export')}}"><img src="{{ URL::asset('/images/excel.png') }}" alt="" width="50" id="excel"></a> --}}
+  </div>
 
+  <div class="col-sm-2">
 
-      {{-- <button type="submit" class="btn btn-danger">
-        <a href="{{route('asistencia')}}">
-          <i class="fa fa-undo" aria-hidden="true"></i> Regresar</a></li></button>
-   --}}
-  </div>         
-
+    <button type="button" class="btn btn-link">
+      <a href="{{route('exportcomplete')}}">
+        <img src="{{ URL::asset('/images/exceln.png') }}" alt="Reporte" width="35" title="Reporte General">
+        <strong> <p id="black">Reporte General</p> </strong> 
+      </a>    
+    </button>
+    
+  </div>  
 
 </div>  
+
 
 </form>
 
@@ -85,13 +91,15 @@ $(document).ready(function() {
 <table  class="table table-hover table-dark table-bordered" id="example">
     <thead>
       <tr>
-        <th scope="col"><font color="#2325E8">#</font></th>
-        <th scope="col"><font color="#2325E8">User</font></th>
-        <th scope="col"><font color="#2325E8">Fecha</font></th>
-        <th scope="col"><font color="#2325E8">Hora</font></th>
-        <th scope="col"><font color="#2325E8">Capacitación</font></th>
-        {{-- <th scope="col"><font color="#2325E8">Comenzar</font></th>
-        <th scope="col"><font color="#2325E8">Finalizar</font></th> --}}
+        <th scope="col"><font color="#900C3F">#</font></th>
+        <th scope="col"><font color="#900C3F">Usuario</font></th>
+        <th scope="col"><font color="#900C3F">Función</font></th>
+        <th scope="col"><font color="#900C3F">Correo</font></th>
+        <th scope="col"><font color="#900C3F">Fecha de Registro</font></th>
+        <th scope="col"><font color="#900C3F">Hora de Ingreso</font></th>
+        <th scope="col"><font color="#900C3F">Capacitación</font></th>
+        {{-- <th scope="col"><font color="#900C3F  ">Comenzar</font></th>
+        <th scope="col"><font color="#900C3F  ">Finalizar</font></th> --}}
         
       </tr>
     </thead>
@@ -99,10 +107,12 @@ $(document).ready(function() {
         @foreach($asis as $asi)
       <tr>
         <th scope="row" >{{$asi->ida}}</th>
-        <th>{{$asi->user}}</th>
+        <th>{{$asi->Nombre." ".$asi->apellido}}</th>
+        <th>{{$asi->role}}</th>
+        <th>{{$asi->correo}}</th>
         <th>{{$asi->fecha}}</th>
         <th>{{$asi->hora}}</th>
-        <th>{{$asi->nombre}}</th>
+        <th>{{$asi->capacitacion}}</th>
         
         {{-- <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}"><i class="fa fa-play" aria-hidden="true"> Iniciar</i></a></button></th>
 

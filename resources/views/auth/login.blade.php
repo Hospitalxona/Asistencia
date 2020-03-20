@@ -12,27 +12,27 @@ Login
       </div>
     @endif 
     {{ Form::open(array('url' => route('login'), 'class' => 'form-horizontal form-signin','files' => true)) }}    
-        <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+        <h3 class="form-signin-heading">Bienvenido! Inicia sesión</h3>
         <hr class="colorgraph"><br>
         {!! csrf_field() !!}
         <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
             <div class="col-sm-12">
-                {!! Form::text('email', null, ['class' => 'form-control','placeholder '=>'E-mail']) !!}
+                {!! Form::text('email', null, ['class' => 'form-control','placeholder '=>'Correo']) !!}
                 {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
         <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
             <div class="col-sm-12">
-                 {!! Form::password('password', ['class' => 'form-control','placeholder '=>'Password']) !!}
+                 {!! Form::password('password', ['class' => 'form-control','placeholder '=>'Contraseña']) !!}
                 {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
             </div>
         </div>      
        
-        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Entrar</button>
 
         <div class="login-register">
-                <a href="{{url('register')}}">Register</a>
-                <a href="{{url('password/reset')}}">Forget Password</a>
+                <a href="{{url('register')}}">Registro</a>
+                <a href="{{url('password/reset')}}">Olvidé mi Contraseña</a>
                 @if ($errors->has('global'))
                 <span class="help-block danger">
                     <strong style="color:red" >{{ $errors->first('global') }}</strong>

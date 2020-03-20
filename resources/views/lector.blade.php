@@ -194,7 +194,7 @@ b{
             }
         );
         scanner.addListener('scan', function(content) {
-            // alert('Escaneo encontrado: ' + content);
+            //alert('Escaneo encontrado: ' + content);
           //  window.open(content, "_blank");
             usuarios = content;
             document.getElementById('dato').value= usuarios;

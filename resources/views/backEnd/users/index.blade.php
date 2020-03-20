@@ -1,29 +1,29 @@
 @extends('backLayout.app')
 @section('title')
-Users
+Usuarios
 @stop
 
 @section('content')
 <div class="panel panel-default">
-        <div class="panel-heading">Users</div>
+        <div class="panel-heading">Usuarios</div>
 
         <div class="panel-body">
 
 @if (Sentinel::getUser()->hasAccess(['user.create']))
-<a href="{{route('user.create')}}" class="btn btn-success">New User</a>
+<a href="{{route('user.create')}}" class="btn btn-success">Nuevo Usuario</a>
 @endif
 <table class="table table-bordered table-striped table-hover" id="tblUsers">
     <thead>
         <tr>
 
-            <th>Select All <input name="select_all" value="1" id="example-select-all" type="checkbox" /></th>
+    <th>Seleccionar Todos <input name="select_all" value="1" id="example-select-all" type="checkbox" /></th>
             <th>ID</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>E-mail</th>
-            <th>user Role</th>
-            <th>Created At</th>
-            <th>Actions</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Rol de Usuario</th>
+            <th>Fecha de Creación</th>
+            <th>Accciones</th>
         </tr>
     </thead>
     <tbody>
@@ -38,27 +38,27 @@ Users
                 <td>{{$user->created_at}}</td>
                 <td>
                     @if (Sentinel::getUser()->hasAccess(['user.show']))
-                    <a href="{{route('user.show', $user->id)}}" class="btn btn-success btn-xs">View</a>
+                    <a href="{{route('user.show', $user->id)}}" class="btn btn-success btn-xs">Ver</a>
                     @endif
                     @if (Sentinel::getUser()->hasAccess(['user.edit']))
-                    <a href="{{route('user.edit', $user->id)}}" class="btn btn-success btn-xs">edit</a>
+                    <a href="{{route('user.edit', $user->id)}}" class="btn btn-success btn-xs">Editar</a>
                     @endif
                     @if (Sentinel::getUser()->hasAccess(['user.permissions']))
-                    <a href="{{route('user.permissions', $user->id)}}" class="btn btn-warning btn-xs">Permissions</a>
+                    <a href="{{route('user.permissions', $user->id)}}" class="btn btn-warning btn-xs">Permisos</a>
                     @endif
                     @if (Sentinel::getUser()->hasAccess(['user.destroy']))
                     {!! Form::open(['method'=>'DELETE', 'route' => ['user.destroy', $user->id], 'style' => 'display:inline']) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
+                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger btn-xs','id'=>'delete-confirm']) !!}
                     {!! Form::close() !!}
                     @endif
                     
                     @if(sizeof($user->activations) == 0)
                     @if (Sentinel::getUser()->hasAccess(['user.activate']))
-                    <a href="{{route('user.activate', $user->id)}}" class="btn btn-primary btn-xs">Activate</a>
+                    <a href="{{route('user.activate', $user->id)}}" class="btn btn-primary btn-xs">Activar</a>
                     @endif
                     @else
                     @if (Sentinel::getUser()->hasAccess(['user.deactivate']))
-                     <a href="{{route('user.deactivate', $user->id)}}" class="btn btn-warning btn-xs">Deactivate</a>
+                     <a href="{{route('user.deactivate', $user->id)}}" class="btn btn-warning btn-xs">Desactivar</a>
                      @endif
                     @endif
                     

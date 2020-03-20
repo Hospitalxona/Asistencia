@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -54,7 +55,8 @@ class RegisterController extends Controller
     
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $roles = Role::get()->where('id','!=','1')->pluck('name', 'id');
+        return View('auth.register',compact('roles'));
     }
 
     public function register(Request $request){
@@ -64,6 +66,7 @@ class RegisterController extends Controller
                 'last_name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6|confirmed',
+                'role' => 'required',
             ]);
 
           if ($validation->fails()) {
@@ -75,15 +78,10 @@ class RegisterController extends Controller
          $activation = Activation::create($user);
          $activation = Activation::complete($user, $activation->code);
         //End activation
+        $user->roles()->sync([$request->role]);
 
-        if($user){
-            $user->roles()->sync([2]); // 2 = client
-            Session::flash('message', 'Registration is completed');
-            Session::flash('status', 'success');
-           return redirect('/'); 
-        }
-         Session::flash('message', 'There was an error with the registration' );
-         Session::flash('status', 'error');
+         Session::flash('message', 'Success! User is created successfully.');
+        Session::flash('status', 'success');
          return Redirect::back();
     }
 

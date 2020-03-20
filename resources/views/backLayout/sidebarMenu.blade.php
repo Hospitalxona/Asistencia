@@ -1,7 +1,7 @@
 
 <div class="left_col scroll-view">
   <div class="navbar nav_title" style="border: 0;">
-    <a href="{{url('dashboard')}}" class="site_title"><i class="fa fa-user-md" aria-hidden="true"></i><span> Laravel Starter</span></a>
+    <a href="{{url('/')}}" class="site_title"><i class="fa fa-user-md" aria-hidden="true"></i><span> Inicio </span></a>
   </div>
 
   <div class="clearfix"></div>
@@ -15,7 +15,7 @@
       <img src="{{ URL::asset('/images/nurse2.jpg') }}" alt="..." class="img-circle profile_img">
     </div>
     <div class="profile_info">
-      <span>Welcome,</span>
+      <span>Bienvenido,</span>
       <h2>{{Sentinel::getUser()->first_name  .' ' .Sentinel::getUser()->last_name }}</h2>
     </div>
   </div>
@@ -49,7 +49,26 @@
       <i class="fa fa-calendar-check-o" aria-hidden="true"></i></i>Lista de Capacitaciones</a></li>
         </ul>
       </li>
+
+
     @endif
+
+    
+    @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
+    <li><a><i class="fa fa-calendar-o" aria-hidden="true"></i>Eventos y Cursos <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        
+        <li><a href="{{route('eventadd')}}">
+          <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Nuevo Curso</a></li>
+
+          <li><a href="{{ url('event') }}">
+            <i class="fa fa-calendar" aria-hidden="true"></i>Calendario</a></li>
+            
+
+      </ul>
+    </li>
+  @endif
+
 
     @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
     <li><a><i class="fa fa-file-text" aria-hidden="true"></i>Lista de Asistencia <span class="fa fa-chevron-down"></span></a>
@@ -70,7 +89,7 @@
           </ul>
         </li>
       @endif --}}
-      <li><a href="{{url('my-qrcode')}}"><i class="fa fa-qrcode" aria-hidden="true"></i>My Qr Code</a></li>
+      <li><a href="{{url('my-qrcode')}}"><i class="fa fa-qrcode" aria-hidden="true"></i>Mi Código QR</a></li>
 
      
         <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>

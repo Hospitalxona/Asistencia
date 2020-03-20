@@ -9,7 +9,14 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Contracts\Support\Responsable;
 
-class AsistenciasExport implements FromQuery
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\AfterSheet;
+
+
+class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEvents
 {
     // use Exportable; 
 
@@ -29,8 +36,41 @@ class AsistenciasExport implements FromQuery
         $this->name = $name;
     }
 
+     public function headings(): array
+    {
+        return [
+            'No.',
+            'NOMBRE',
+            'APELLIDO',
+            'CORREO ELECTRONICO',
+            'FUNCIÓN',
+            'FECHA DE REGISTRO',
+            'HORA DE REGISTRO',
+            'NoC.',
+            'CAPACITACIÓN',
+        ];
+    }
+
+    
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+                $cellRange = 'A1:I1'; // All headers
+                $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(9);
+            },
+        ];
+    }
+
     public function query()
     {
-        return listaases::query()->where('nombre', $this->name);
+        return listaases::query()->where('capacitacion', $this->name);
     }
+
+    
+
+   
 }
+
+
+

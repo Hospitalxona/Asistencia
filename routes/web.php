@@ -51,13 +51,19 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::get('desactivarcapa/{id}','capacitacion@desactivarcapa')->name('desactivarcapa'); //desactivatr capacitación
  Route::get('buscarasistencia/', 'Asistencia@buscarasistencia')->name('buscarasistencia'); 
 
-
+//calendar
+ Route::get('event/add','EventController@createEvent')->name('eventadd');
+ Route::post('event/add','EventController@store');
+ Route::get('event','EventController@calender');
+ 
  // excel
 
  Route::get('users/export/', 'UsersController@export');
 
 
  Route::get('Asistencias/export/', 'Asistencia@export')->name('export');
+
+ Route::get('AsistenciasGenerales/export/', 'Asistencia@exportcomplete')->name('exportcomplete');
 
  Route::get('excel', function (AsistenciasExport $asistenciasExport ){
 

@@ -1,11 +1,11 @@
 @extends('backLayout.app')
 @section('title')
-Edit role : {{$role->name}}
+Editar role : {{$role->name}}
 @stop
 
 @section('content')
 <div class="panel panel-default">
-        <div class="panel-heading">Edit role :{{$role->name}} </div>
+        <div class="panel-heading">Editar role :{{$role->name}} </div>
 
         <div class="panel-body">
 
