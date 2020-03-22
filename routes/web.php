@@ -56,6 +56,10 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::post('event/add','EventController@store');
  Route::get('event','EventController@calender');
  Route::get('eventPublic','EventController@calenderpublic');
+
+
+ Route::get('examen','ExamenController@show');
+ Route::post('examenCreate','ExamenController@create')->name('examenCreate');
  
  // excel
 

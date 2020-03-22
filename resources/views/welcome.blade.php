@@ -12,28 +12,28 @@
 
 
 <div class="content">
-<div class="title m-b-md">
 
+    @if (Sentinel::check() )
+    <button type="button" class="btn btn-link">
+
+        <strong>Bienvenido!</strong>
+
+           {{Sentinel::getUser()->first_name}} 
+           {{Sentinel::getUser()->last_name}} 
+        |  {{Sentinel::getUser()->email}} 
+    </button>
+    @endif
+    
+
+<div class="title m-b-md">
+    
 Control de Asistencia  <i class="fa fa-qrcode fa-1x" aria-hidden="true"> QR</i>
 
 <a href="#">
 <img src="{{ URL::asset('/images/capa.jpg') }}" alt="" title="Nosotros te Capacitamos">
 </a>
 
-
 </div>
-@if (Sentinel::check() )
-     Nombre de usuario : {{Sentinel::getUser()->first_name}} <br>
-     Apellido : {{Sentinel::getUser()->last_name}} <br>
-     E-mail : {{Sentinel::getUser()->email}} <br>
-    @endif
-<br>
-{{-- <div class="links">
-    <a href="https://github.com/Hospitalxona/Asistencia">GitHub</a>
-    <a href="#">My Website</a>
-    <a href="#">Facebook</a>
-    <a href="#">Youtube</a>
-</div> --}}
 
         <div class="links">
             <a href="#"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>

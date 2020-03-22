@@ -58,7 +58,7 @@ Register
               <div class="cols-sm-10">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
-                  {!! Form::select('role', $roles, null, ['class' => 'form-control']) !!}                </div>
+            {!! Form::select('role', $roles, null, ['class' => 'form-control']) !!}                </div>
                   {!! $errors->first('role', '<p class="help-block">:message</p>') !!}
               </div>
             </div>

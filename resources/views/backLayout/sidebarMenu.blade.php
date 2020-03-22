@@ -81,6 +81,21 @@
     </li>
   @endif
 
+  
+  @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
+  
+  <li><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    Crear Examen <span class="fa fa-chevron-down"></span></a>
+  <ul class="nav child_menu">
+      
+        <li><a href="{{url('examen')}}">
+          <i class="fa fa-file-text" aria-hidden="true"></i>Nuevo Examen</a></li>
+
+    </ul>
+  </li>
+@endif
+
+
       {{-- @if (Sentinel::getUser()->hasAnyAccess(['role.*']))
         <li><a><i class="fa fa-cog"></i> Roles <span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
@@ -90,6 +105,8 @@
         </li>
       @endif --}}
       <li><a href="{{url('my-qrcode')}}"><i class="fa fa-qrcode" aria-hidden="true"></i>Mi Código QR</a></li>
+
+ 
 
      
         <!-- <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
