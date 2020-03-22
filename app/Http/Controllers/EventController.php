@@ -52,4 +52,32 @@ class EventController extends Controller
                 $calendar = Calendar::addEvents($events);
                 return view('calendar', compact('calendar'));
             }
+
+            public function calenderpublic()
+            {
+                $events = [];
+                $data = Event::all();
+                if($data->count())
+                 {
+                    foreach ($data as $key => $value) 
+                    {
+                        $events[] = Calendar::event(
+                        $datac = ( $value->hora." ".$value->title), 
+                    
+                            true,
+                            new \DateTime($value->start_date),
+                            new \DateTime($value->end_date.'+1 day'),
+                            null,
+                            // Add color
+                         [
+                            
+                             'url' => $value->url,    
+                       
+                         ]
+                        );
+                    }
+                }
+                $calendar = Calendar::addEvents($events);
+                return view('calendarpublic', compact('calendar'));
+            }
 }

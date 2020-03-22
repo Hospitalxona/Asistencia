@@ -27,7 +27,7 @@ Control de Asistencia  <i class="fa fa-qrcode fa-1x" aria-hidden="true"> QR</i>
      Apellido : {{Sentinel::getUser()->last_name}} <br>
      E-mail : {{Sentinel::getUser()->email}} <br>
     @endif
-
+<br>
 {{-- <div class="links">
     <a href="https://github.com/Hospitalxona/Asistencia">GitHub</a>
     <a href="#">My Website</a>

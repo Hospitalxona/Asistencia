@@ -1,4 +1,4 @@
-@extends('backLayout.calendarStyle')
+@extends('frontLayout.normalStyle')
 @section('title')
 
 Calendario

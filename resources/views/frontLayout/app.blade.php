@@ -95,7 +95,9 @@
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
+
                     @if (!Sentinel::getUser())
+        
                        <li><a href="{{ url('event') }}">
                         <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
                         <li><a href="{{ url('login') }}">
@@ -103,10 +105,13 @@
                         {{-- <li><a href="{{ url('qrLogin') }}">Qr Login</a></li> --}}
                         <li><a href="{{ url('register') }}">
                             <i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse</a></li>
-                        
-					@else
-                        <li><a href="{{ url('/') }}">
-                            <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+                     @endif
+
+					 @if ($user=Sentinel::getUser())
+                    {{-- $user=Sentinel::getUser(); --}}
+                     @if ($user->inRole('admin'))
+
+                     
                         <li><a href="{{ url('event') }}">
                             <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
                         <li><a href="{{url('my-qrcode')}}">
@@ -115,7 +120,24 @@
                             <i class="fa fa-graduation-cap" aria-hidden="true"></i> Capacitaciones</a></li>
                         <li><a href="{{url('user/logout/now')}}">
                             <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
-					@endif
+                    
+                    @endif
+                    @endif
+
+                    @if ($user=Sentinel::getUser())
+                    @if (!$user->inRole('admin'))
+        
+                    <li><a href="{{ url('eventPublic') }}">
+                     <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
+                     <li><a href="{{url('my-qrcode')}}">
+                        <i class="fa fa-hospital-o" aria-hidden="true"></i> Control</a></li>
+                    <li><a href="{{url('user/logout/now')}}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
+                   
+                  @endif
+                  @endif
+
+
 				</ul>
 			</div>
 
