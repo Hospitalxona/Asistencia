@@ -6,8 +6,17 @@ Login
 
 @section('style')
 
+<style>
+
+iframe{
+    width: 100%;
+}
+
+</style>
+
 @stop
 @section('content')
+
 
 
 @endsection

@@ -30,9 +30,12 @@ Login
        
         <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Entrar</button>
 
+        <br>
         <div class="login-register">
-                <a href="{{url('register')}}">Registro</a>
-                <a href="{{url('password/reset')}}">Olvidé mi Contraseña</a>
+                <a href="{{url('register')}}">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i> <strong>Registro</strong> </a> /
+                <a href="{{url('password/reset')}}">
+                  <i class="fa fa-key" aria-hidden="true"></i> <strong>Olvidé mi Contraseña</strong></a>
                 @if ($errors->has('global'))
                 <span class="help-block danger">
                     <strong style="color:red" >{{ $errors->first('global') }}</strong>

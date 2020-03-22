@@ -94,7 +94,8 @@ Register
               
             </div>
             <div class="login-register">
-                    <a href="{{url('login')}}">Iniciar sesión</a>
+                    <a href="{{url('login')}}">
+                      <i class="fa fa-sign-in" aria-hidden="true"></i>  <strong>Iniciar sesión</strong> </a>
                     @if ($errors->has('global'))
                     <span class="help-block danger">
                         <strong style="color:red" >{{ $errors->first('global') }}</strong>
