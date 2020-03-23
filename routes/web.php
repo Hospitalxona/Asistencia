@@ -57,9 +57,11 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::get('event','EventController@calender');
  Route::get('eventPublic','EventController@calenderpublic');
 
-
+// examenes
  Route::get('examen','ExamenController@show');
  Route::post('examenCreate','ExamenController@create')->name('examenCreate');
+ Route::get('changeStatus/{id}','ExamenController@changeStatus')->name('changeStatus');
+ Route::get('inactiveStatus/{id}','ExamenController@inactiveStatus')->name('inactiveStatus');
  
  // excel
 

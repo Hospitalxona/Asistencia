@@ -20,6 +20,7 @@ class Examens extends Migration
             $table->double('calpre')->nullable();
             $table->double('calpos')->nullable();
             $table->string('status')->nullable();
+            $table->string('tipo');
             $table->softDeletes();
             $table->timestamps();
         });

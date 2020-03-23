@@ -33,9 +33,26 @@ class ExamenController extends Controller
         $exam= new Examens();
         // $exam->id=$request->get('id');
         $exam->title=$request->get('nombre');
+        $exam->tipo=$request->get('tipo');
         $exam->iframe=$request->get('iframe');
         $exam->status="indef";
         $exam->save();
         return redirect('examen')->with('success', 'Examen ha sido agregado');
+    }
+
+    public function changeStatus($id){
+
+        $status = Examens::find($id);
+        $status->status="Activo";
+        $status->save();
+        return redirect('examen')->with('success', 'Estatus cambiado con exito');
+    }
+
+    public function inactiveStatus($id){
+
+        $status = Examens::find($id);
+        $status->status="Inactivo";
+        $status->save();
+        return redirect('examen')->with('success', 'Estatus cambiado con exito');
     }
 }
