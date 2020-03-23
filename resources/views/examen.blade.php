@@ -72,7 +72,7 @@ $(document).ready(function() {
         <div class="input-group">
 
             <span class="input-group-addon"><i class="fa fa-code  fa-2x" aria-hidden="true"></i></span>
-                <textarea name="iframe"    id="editor" rows="8" class="form-control" placeholder="Ingresa el contenido embebido (iframe) de audio o video"></textarea>
+                <textarea name="iframe"    id="editor" rows="7" class="form-control" placeholder="Ingresa el contenido embebido (iframe) de audio o video"></textarea>
         
         </div>
         
