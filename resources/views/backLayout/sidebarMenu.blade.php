@@ -95,6 +95,24 @@
   </li>
 @endif
 
+@if ($user=Sentinel::getUser())
+@if (!$user->inRole('admin'))
+  
+  <li><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    Examenes <span class="fa fa-chevron-down"></span></a>
+  <ul class="nav child_menu">
+      
+        <li><a href="">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i>Examenes Pre</a></li>
+
+          <li><a href="">
+            <i class="fa fa-file-text" aria-hidden="true"></i>Examenes Pos</a></li>
+
+    </ul>
+  </li>
+  @endif
+  @endif
+
 
       {{-- @if (Sentinel::getUser()->hasAnyAccess(['role.*']))
         <li><a><i class="fa fa-cog"></i> Roles <span class="fa fa-chevron-down"></span></a>
