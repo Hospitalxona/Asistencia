@@ -85,11 +85,14 @@
   @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
   
   <li><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    Crear Examen <span class="fa fa-chevron-down"></span></a>
+    Examenes <span class="fa fa-chevron-down"></span></a>
   <ul class="nav child_menu">
       
         <li><a href="{{url('examen')}}">
           <i class="fa fa-file-text" aria-hidden="true"></i>Nuevo Examen</a></li>
+
+          <li><a href="{{URL::action('CalificacionesController@index')}}">
+            <i class="fa fa-file-text" aria-hidden="true"></i>Calificaciones</a></li>
 
     </ul>
   </li>

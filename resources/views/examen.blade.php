@@ -100,7 +100,7 @@ $(document).ready(function() {
            <select class="form-control" name="tipo" id="tipo">
                <option value=""></option>
                <option value="pre">Pre</option>
-               <option value="pos">pos</option>
+               <option value="pos">Post</option>
            </select>
 
             </div>

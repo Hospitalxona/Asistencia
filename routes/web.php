@@ -65,6 +65,9 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  // mostrar examenes
  Route::get('showExampre','ExamenController@showExampre');
  Route::get('showExampos','ExamenController@showExampos');
+
+//Calificaciones
+Route::resource('calificaciones', 'CalificacionesController');
  
  // excel
 
@@ -87,9 +90,10 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 
 
 return $asistenciasExport;
-
-
 return 'Listo';
+
+
+
 
  });
 
