@@ -65,7 +65,7 @@ $(document).ready(function() {
         <th>Usuario</th>
         <th>{{$c->calpre}}</th>
         <th>{{$c->calpos}}</th>
-        <th>  Acciones  </th>
+        <th>  <button type="button" class="btn btn-success">Guardar</button>  </th>
       </tr>
       @endforeach
     </tbody>
