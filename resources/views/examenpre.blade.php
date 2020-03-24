@@ -113,7 +113,6 @@ $(document).ready(function() {
     
 
               <div class="container">   
-                <div align="right"> <input type="submit" class="btn btn-purple" value="Continuar"></button>  
                 {!! $exa->iframe !!}
              </div> 
               </div>   
