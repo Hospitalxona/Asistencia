@@ -102,10 +102,10 @@
     Examenes <span class="fa fa-chevron-down"></span></a>
   <ul class="nav child_menu">
       
-        <li><a href="">
+        <li><a href="{{url('showExampre')}}">
           <i class="fa fa-file-text-o" aria-hidden="true"></i>Examenes Pre</a></li>
 
-          <li><a href="">
+          <li><a href="{{url('showExampos')}}">
             <i class="fa fa-file-text" aria-hidden="true"></i>Examenes Pos</a></li>
 
     </ul>

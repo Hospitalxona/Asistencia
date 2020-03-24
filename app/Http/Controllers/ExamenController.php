@@ -55,4 +55,16 @@ class ExamenController extends Controller
         $status->save();
         return redirect('examen')->with('success', 'Estatus cambiado con exito');
     }
+
+    public function showExampre(){
+
+        $examens = Examens::all();
+        return view('examenpre',compact('examens'));
+    }
+
+    public function showExampos(){
+
+        $examens = Examens::all();
+        return view('exampos',compact('examens'));
+    }
 }

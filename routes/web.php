@@ -62,6 +62,9 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::post('examenCreate','ExamenController@create')->name('examenCreate');
  Route::get('changeStatus/{id}','ExamenController@changeStatus')->name('changeStatus');
  Route::get('inactiveStatus/{id}','ExamenController@inactiveStatus')->name('inactiveStatus');
+ // mostrar examenes
+ Route::get('showExampre','ExamenController@showExampre');
+ Route::get('showExampos','ExamenController@showExampos');
  
  // excel
 
