@@ -47,6 +47,30 @@ iframe{
     width: 100%;
 }
 
+.btn-purple{
+
+    background-color: rgb(103, 58, 183);
+    color:rgb(255, 255, 255);
+    cursor:pointer;
+    display:inline-block;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .25px;
+    line-height: 23px;
+    text-decoration: none;
+    text-transform: none;
+    min-width: auto;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    /* float:right; */
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 0;
+        }
+
+
 
 </style>
 
@@ -55,12 +79,15 @@ iframe{
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
 
+{{-- <link rel="stylesheet" href="{{asset('/css/button.css')}}"> --}}
 
-<script type="">
+
+<script type="text/javascript">
 
 $(document).ready(function() {
     $('#example').DataTable();
 } );
+
   
 </script>
 
@@ -83,10 +110,15 @@ $(document).ready(function() {
 
     <div class="panel-body">
 
-      
-              <div class="container">
+    
+
+              <div class="container">   
+                <div align="right"> <input type="submit" class="btn btn-purple" value="Continuar"></button>  
                 {!! $exa->iframe !!}
+             </div> 
               </div>   
+
+             
      @endif
 @endforeach
       
