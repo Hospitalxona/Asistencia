@@ -57,17 +57,19 @@ $(document).ready(function() {
       </tr>
     </thead>
     <tbody>
-        @foreach($cal as $c)
+
+        @foreach($con as $co)
       <tr>
-        <th scope="row" >{{$c->id}}</th>
-        <th>{{$c->title}}</th>
-        <th>Tipo</th>
-        <th>Usuario</th>
-        <th>{{$c->calpre}}</th>
-        <th>{{$c->calpos}}</th>
+        <th scope="row" >{{ $co->id }}</th>
+        <th>{{ $co->title }}</th>
+        <th>{{ $co->tipo }}</th>
+        <th>{{ $co->usuario }}</th>
+        <th>{{ $co->calpre }}</th>
+        <th>{{ $co->calpos }}</th>
         <th>  <button type="button" class="btn btn-success">Guardar</button>  </th>
       </tr>
       @endforeach
+
     </tbody>
   </table>
 

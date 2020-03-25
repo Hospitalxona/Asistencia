@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\calificaciones;
 use Illuminate\Http\Request;
+use DB;
 
 class CalificacionesController extends Controller
 {
@@ -14,8 +16,13 @@ class CalificacionesController extends Controller
      */
     public function index()
     {
-        $cal = calificaciones::all();
-        return view('calificacionesread', compact('cal'));
+
+        $con=\DB::select("SELECT cal.id AS id,cal.title AS title ,ex.tipo AS tipo,CONCAT( us.first_name,' ', us.last_name) AS usuario,cal.calpre AS calpre,cal.calpos AS calpos
+        FROM calificaciones AS cal
+        INNER JOIN users AS us ON us.id=cal.idu
+        INNER JOIN examens AS ex ON ex.id= cal.ide");
+        return view('calificacionesread')
+        ->with('con',$con);
     }
 
     /**
