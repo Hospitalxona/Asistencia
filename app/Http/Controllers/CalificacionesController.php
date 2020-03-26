@@ -83,7 +83,7 @@ class CalificacionesController extends Controller
 
         $cu->calpre = $request->get('calpre');
         $cu->calpos = $request->get('calpos');
-        $cu->update();
+        $cu->save();
         return redirect('calificaciones.index');
     }
 
