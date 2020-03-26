@@ -63,12 +63,21 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::get('changeStatus/{id}','ExamenController@changeStatus')->name('changeStatus');
  Route::get('inactiveStatus/{id}','ExamenController@inactiveStatus')->name('inactiveStatus');
  // mostrar examenes
- Route::get('showExampre','ExamenController@showExampre');
+ Route::get('showExampre','ExamenController@showExampre')->name('showExampre');
  Route::get('showExampos','ExamenController@showExampos');
+ Route::get('sinExamen','ExamenController@sinExamen')->name('sinExamen');
+
+// Confirma el guardado de los datos
+ Route::get('confirmacion','ExamenController@confirmacion')->name('confirmacion'); 
+ Route::get('exito','ExamenController@exito')->name('exito'); 
+
+ // Guardar examen contestado por usuario
+ Route::post('createCal','ExamenController@createCal')->name('createCal');
+ Route::post('createCalpos','ExamenController@createCalpos')->name('createCalpos');
+
 
 //Calificaciones
 Route::resource('calificaciones', 'CalificacionesController');
-
  
  // excel
 

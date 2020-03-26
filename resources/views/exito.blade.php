@@ -1,5 +1,4 @@
 
-
 @extends('backLayout.app')
 @section('title')
 
@@ -14,9 +13,9 @@ ExamenPre
 #activo{
 
     color: aliceblue;
-    background-color: #25BD7C;
-    padding: 2px;
-    border-radius: 25px;
+    background-color:#37CF8E  ;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px;
     
     
 }
@@ -77,6 +76,7 @@ iframe{
 }
 
 
+
 </style>
 
 
@@ -101,72 +101,38 @@ $("#con").hide();
 
 });
 
-
+  
 </script>
 
+<script>
+    $(document).ready(function()
+    {
+       $("#mostrarmodal").modal("show");
+    });
+  </script>
+
+
+<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h3>Registros Guardados</h3>
+         </div>
+         <div class="modal-body">
+          <p><span id="activo"> DATOS GUARDADOS EXITOSAMENTE ! </span></p> 
+   
+     </div>
+         <div class="modal-footer">
+        {{-- <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a> --}}
+         <a href="{{url('showExampre')}}"  class="btn btn-danger">Cerrar</a>
+         </div>
+    </div>
+ </div>
+</div>
 
 
 <div class="panel panel-default">
 
-@foreach($examens as $exa)
-    @if($exa->status == "Activo")
-    @if($exa->tipo == "pre")
-    
-
-
-        
-        <div class="panel-heading"> <h4> Nuevo Examen <small>  {{$exa->title}} </small>  </h4>  
-
-           
-  
-            {{-- <div align="right">
-                    @if($exa->status == "Activo")
-                    <span id="activo">{{$exa->status}}</span>
-                    @endif
-                </div>    --}}
-        </div>
-
-        <form action="{{Route('createCal')}}" method="post" class="form-horizontal files">
-            {{csrf_field()}}
-            
-            <div align="right">
-            
-            {{-- <label for="">title</label> --}}
-            <input type="text" value="{{$exa->title}}" name="title" hidden>
-            {{-- <label for="">ide</label> --}}
-            <input type="text" name="ide" value="{{$exa->id}}" hidden>
-            {{-- <label for="">idu</label> --}}
-            <input type="text" name="idu" value="{{Sentinel::getUser()->id}}" hidden>
-            <br>
-            <input type="submit" class="btn btn-purple" value="Continuar">
-            </div>
-
-        </form>
-
-
-        <div class="panel-body">
-
-            
-   
-
-
-
-            <div class="container" id="con">         
-                
-                {!! $exa->iframe !!}
-
-            </div>  
-
-            <hr id="hr">
-
-        @endif
-        @endif
-@endforeach
-
-
-      
-
-    </div>
 </div>
 
 
