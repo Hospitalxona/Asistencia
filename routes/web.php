@@ -68,6 +68,7 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 
 //Calificaciones
 Route::resource('calificaciones', 'CalificacionesController');
+
  
  // excel
 
