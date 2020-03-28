@@ -1,9 +1,9 @@
 
 
-@extends('frontLayout.app')
+@extends('backLayout.app')
 @section('title')
 
-Capacitaciones
+Lista de Capacitaciones
 
 @stop
 @section('content')
@@ -11,11 +11,49 @@ Capacitaciones
 
 <style>
 
-a{
-color: aliceblue;
+#activo{
+
+    color: aliceblue;
+    background-color: #25BD7C;
+    padding: 5px;
+    border-radius: 50px;
+    
+    
 }
 
+#Inactivo{
+
+color: aliceblue;
+background-color: #F6422C;
+padding: 5px;
+border-radius: 50px;
+
+
+}
+ 
+
+#indef{
+
+color: aliceblue;
+background-color: #FFC300;
+padding: 5px;
+border-radius: 50px;
+
+
+}
+
+#ini{
+  color: aliceblue;
+}
+
+#fin{
+  color: aliceblue;
+}
+
+
 </style>
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
@@ -32,6 +70,12 @@ $(document).ready(function() {
 </script>
 
 
+<div class="panel panel-default">
+    
+  <div class="panel-heading">Listado de Capacitaciones  </div>
+
+
+<div class="panel-body">
 
 <table  class="table table-hover table-dark table-bordered" id="example">
     <thead>
@@ -55,13 +99,16 @@ $(document).ready(function() {
         <th>{{$lis->hora}}</th>
         <th>{{$lis->lugar}}</th>
         
-        <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}"><i class="fa fa-play" aria-hidden="true"> Iniciar</i></a></button></th>
+        <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}" id="ini"><i class="fa fa-play" aria-hidden="true"> Iniciar</i></a></button></th>
 
-        <th><button type="button" class="btn btn-danger" ><a href="{{URL::action('capacitacion@desactivarcapa',['id'=>$lis->id])}}"><i class="fa fa-times" aria-hidden="true"> Finalizar</i></a></button></th>
+        <th><button type="button" class="btn btn-danger" ><a href="{{URL::action('capacitacion@desactivarcapa',['id'=>$lis->id])}}" id="fin"><i class="fa fa-times" aria-hidden="true"> Finalizar</i></a></button></th>
       </tr>
       @endforeach
     </tbody>
   </table>
+
+</div>
+</div>
 
 @endsection
 

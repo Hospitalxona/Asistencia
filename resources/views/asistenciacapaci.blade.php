@@ -1,6 +1,6 @@
 
 
-@extends('frontLayout.app')
+@extends('backLayout.app')
 @section('title')
 
 Lista de Asistencias
@@ -11,27 +11,46 @@ Lista de Asistencias
 
 <style>
 
-a{
+#activo{
+
+    color: aliceblue;
+    background-color: #25BD7C;
+    padding: 5px;
+    border-radius: 50px;
+    
+    
+}
+
+#Inactivo{
+
 color: aliceblue;
+background-color: #F6422C;
+padding: 5px;
+border-radius: 50px;
+
+
+}
+ 
+
+#indef{
+
+color: aliceblue;
+background-color: #FFC300;
+padding: 5px;
+border-radius: 50px;
+
+
 }
 
-p{
-  color:limegreen;
-  font-style: italic;
-  
-}
 
-#black{
-  color: black;
-}
 </style>
+
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
-
-
 
 
 <script type="">
@@ -40,8 +59,13 @@ $(document).ready(function() {
     $('#example').DataTable();
 } );
   
-</script> 
+</script>
 
+<div class="panel panel-default">
+    
+  <div class="panel-heading">Listado de Asistencias  </div>
+
+  <br>
 
 
 
@@ -55,8 +79,6 @@ $(document).ready(function() {
     <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
     <input type="search" class="form-control is-invalid" name="buscador" id="validationDefault03" placeholder="Buscar Capacitación" required>
     </div>
-    
-
   </div>
 
   <div class="col-sm-2">
@@ -80,12 +102,12 @@ $(document).ready(function() {
     
   </div>  
 
-</div>  
+</div>
 
 
 </form>
 
-
+<div class="panel-body">
 
 <table  class="table table-hover table-dark table-bordered" id="example">
     <thead>
@@ -120,6 +142,12 @@ $(document).ready(function() {
       @endforeach
     </tbody>
   </table>
+
+
+</div>
+</div>
+
+
 
 @endsection
 

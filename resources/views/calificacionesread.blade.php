@@ -105,14 +105,14 @@ $(document).ready(function() {
 <table  class="table table-hover table-dark table-bordered" id="example">
     <thead>
       <tr>
-        <th scope="col"><font color="#900C3F">ID</font></th>
-        <th scope="col"><font color="#900C3F">Examen</font></th>
-        <th scope="col"><font color="#900C3F">Tipo</font></th>
-        <th scope="col"><font color="#900C3F">Usuario</font></th>
-        <th scope="col"><font color="#900C3F">Cal. Pre</font></th>
-        <th scope="col"><font color="#900C3F">Cal. Post</font></th>
-        <th scope="col"><font color="#900C3F">Pormedio</font></th>
-        <th scope="col"><font color="#900C3F">Acciones</font></th>
+        <th scope="col"><font color="#25BD7C">ID</font></th>
+        <th scope="col"><font color="#25BD7C">Examen</font></th>
+        <th scope="col"><font color="#25BD7C">Tipo</font></th>
+        <th scope="col"><font color="#25BD7C">Usuario</font></th>
+        <th scope="col"><font color="#25BD7C">Cal. Pre</font></th>
+        <th scope="col"><font color="#25BD7C">Cal. Post</font></th>
+        <th scope="col"><font color="#25BD7C">Pormedio</font></th>
+        <th scope="col"><font color="#25BD7C">Acciones</font></th>
       </tr>
     </thead>
     <tbody>
@@ -132,12 +132,12 @@ $(document).ready(function() {
     <th>
       <center>
      
-      <input type="number" style="text-align: center;" name="calpre"  value="{{ $co->calpre }}"  min="1" max="10">
+      <input type="number" style="text-align: center;" class="form-control" name="calpre"  value="{{ $co->calpre }}"  min="0" max="10">
       </center>
     </th>
     <th>
       <center>
-      <input type="number"  style="text-align: center;" name="calpos"  value="{{ $co->calpos }}"  min="1" max="10">
+      <input type="number"  style="text-align: center;" class="form-control"  name="calpos"  value="{{ $co->calpos }}"  min="0" max="10">
     </center>
     </th>
 
