@@ -9,6 +9,6 @@ class calificaciones extends Model
 {
     use SoftDeletes;
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'title','ide','idu','calpre','calpos','estatus'];
+    protected $fillable = ['id', 'title','ide','idu','calpre','calpos','promedio','estatus'];
     protected $date=['deleted_at'];
 }

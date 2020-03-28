@@ -159,13 +159,33 @@ class ExamenController extends Controller
         return redirect('showExampos')->with('success', 'Examen ha sido agregado');
     }
 
-    public function sinExamen(Request $request){
+    public function calificacion(Request $request){
 
-        $examens = Examens::all();
-        return view('sinexamen')
-        ->with('examens',$examens);
+        $id= $request->id;
+
+        $promedio = $request->calpre + $request->calpos;
+
+        $calnew= Calificaciones::find($id);
+        $calnew->calpre=$request->calpre;
+        $calnew->calpos=$request->calpos;
+        $calnew->promedio=$promedio / 2;
+        $calnew->save();
+        return redirect('showcal')->with('success', 'Estatus cambiado con exito');
 
 
+    }
+
+    public function showcal(){
+
+        
+        $con=\DB::select("SELECT cal.id AS id,cal.title AS title ,ex.tipo AS tipo,CONCAT( us.first_name,' ', us.last_name) AS usuario,cal.calpre AS calpre,cal.calpos AS calpos,cal.promedio AS promedio
+        FROM calificaciones AS cal
+        INNER JOIN users AS us ON us.id=cal.idu
+        INNER JOIN examens AS ex ON ex.id= cal.ide");
+        return view('calificacionesread')
+        ->with('con',$con);
+
+        return view('calificacionesread',compact('con'));
     }
 
 }

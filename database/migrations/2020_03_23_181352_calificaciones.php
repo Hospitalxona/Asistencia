@@ -20,6 +20,7 @@ class Calificaciones extends Migration
             $table->unsignedInteger('idu');
             $table->double('calpre')->nullable();
             $table->double('calpos')->nullable();
+            $table->double('promedio')->nullable();
             $table->string('estatus')->nullable();
             $table->softDeletes();
             $table->timestamps();

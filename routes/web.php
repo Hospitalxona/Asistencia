@@ -78,6 +78,10 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 
 //Calificaciones
 Route::resource('calificaciones', 'CalificacionesController');
+
+// new save calificaciones
+Route::get('showcal','ExamenController@showcal');
+Route::post('calificacion','ExamenController@calificacion')->name('calificacion');
  
  // excel
 

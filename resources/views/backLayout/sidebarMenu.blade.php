@@ -39,14 +39,14 @@
       @endif
 
       @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
-      <li><a><i class="fa fa-th-list" aria-hidden="true"></i>Capacitaciones <span class="fa fa-chevron-down"></span></a>
+      <li><a><i class="fa fa-th-list" aria-hidden="true"></i> Capacitaciones <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           
           <li><a href="{{route('createcapaci')}}">
-    <i class="fa fa-plus-square" aria-hidden="true"></i>Nueva Capacitación</a></li>
+    <i class="fa fa-plus-square" aria-hidden="true"></i> Nueva Capacitación</a></li>
 
     <li><a href="{{ url('capacitaciones') }}">
-      <i class="fa fa-calendar-check-o" aria-hidden="true"></i></i>Lista de Capacitaciones</a></li>
+      <i class="fa fa-calendar-check-o" aria-hidden="true"></i></i> Lista de Capacitaciones</a></li>
         </ul>
       </li>
 
@@ -55,14 +55,14 @@
 
     
     @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
-    <li><a><i class="fa fa-calendar-o" aria-hidden="true"></i>Eventos y Cursos <span class="fa fa-chevron-down"></span></a>
+    <li><a><i class="fa fa-calendar-o" aria-hidden="true"></i> Eventos y Cursos <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         
         <li><a href="{{route('eventadd')}}">
-          <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>Nuevo Curso</a></li>
+          <i class="fa fa-calendar-plus-o" aria-hidden="true"></i> Nuevo Curso</a></li>
 
           <li><a href="{{ url('event') }}">
-            <i class="fa fa-calendar" aria-hidden="true"></i>Calendario</a></li>
+            <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
             
 
       </ul>
@@ -71,11 +71,11 @@
 
 
     @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
-    <li><a><i class="fa fa-file-text" aria-hidden="true"></i>Lista de Asistencia <span class="fa fa-chevron-down"></span></a>
+    <li><a><i class="fa fa-file-text" aria-hidden="true"></i> Lista de Asistencia <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         
         <li><a href="{{route('asistencia')}}">
-          <i class="fa fa-check-square-o" aria-hidden="true"></i>Usuarios Registrados</a></li>
+          <i class="fa fa-check-square-o" aria-hidden="true"></i> Usuarios Registrados</a></li>
 
       </ul>
     </li>
@@ -89,10 +89,10 @@
   <ul class="nav child_menu">
       
         <li><a href="{{url('examen')}}">
-          <i class="fa fa-file-text" aria-hidden="true"></i>Nuevo Examen</a></li>
+          <i class="fa fa-file-text" aria-hidden="true"></i> Nuevo Examen</a></li>
 
-          <li><a href="{{URL::action('CalificacionesController@index')}}">
-            <i class="fa fa-file-text" aria-hidden="true"></i>Calificaciones</a></li>
+          <li><a href="{{url('showcal')}}">
+            <i class="fa fa-calculator" aria-hidden="true"></i> Calificaciones</a></li>
 
     </ul>
   </li>

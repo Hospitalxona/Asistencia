@@ -119,7 +119,7 @@ $("#con").hide();
             <h3>Registros Guardados</h3>
          </div>
          <div class="modal-body">
-          <h5><span id="Inactivo">  USTED HA GUARDADO CORRECTAMENTE LOS DATOS DE ESTE EXAMEN! </span></h5> 
+          <h5><span id="Inactivo">  USTED YA HA GUARDADO CORRECTAMENTE LOS DATOS DE ESTE EXAMEN! </span></h5> 
           <br>
           <h5> Gracias por su atención</h5></p>
           
