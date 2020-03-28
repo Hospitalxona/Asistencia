@@ -63,6 +63,41 @@ $(document).ready(function() {
     
   <div class="panel-heading">Listado de Calificaciones  </div>
 
+  <br>
+
+  <form action="{{ route('exportbycriterio') }}" method="get" class="form-horizontal files">
+    {{ csrf_field() }}
+  
+
+  <div class="col-sm-4">
+    <div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+    <input type="search" class="form-control is-invalid" name="buscador" id="validationDefault03" placeholder="Buscar Examen" required>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+
+    <button type="submit" class="btn btn-link">
+      <img src="{{ URL::asset('/images/excel.png') }}" alt="Generar Reporte en excel dependiendo el criterio dado por la busqueda" width="35" title="Export">
+      <strong> <p>Reporte por examen</p> </strong> 
+    </button>
+    
+  </div> 
+
+  <div class="col-sm-2">
+
+    <button type="button" class="btn btn-link">
+      <a href="{{route('exportcalificacion')}}">
+        <img src="{{ URL::asset('/images/exceln.png') }}" alt="Reporte" width="35" title="Reporte General">
+        <strong> <p id="black">Reporte General</p> </strong> 
+      </a>    
+    </button>
+    
+  </div> 
+
+</form>
+
   <div class="panel-body">
  
 

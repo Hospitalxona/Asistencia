@@ -2,8 +2,8 @@
 
 namespace App\Exports;
 
-use App\Asistencias;
-use App\listaases;
+use App\Calis;
+
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -15,20 +15,9 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-
-class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEvents
+class CaliscriExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEvents
 {
-    // use Exportable; 
-
-    // private $fileName = "Asistencias.xlsx";
-    // /**
-    // * @return \Illuminate\Support\Collection
-    // */
-    // public function collection()
-    // {
-    //     return Asistencias::all();
-    // }
-
+   
     use Exportable;
 
     public function __construct(string $name)
@@ -40,15 +29,12 @@ class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEve
     {
         return [
             'No.',
-            'NOMBRE',
-            'APELLIDO',
-            'CORREO ELECTRONICO',
-            'FUNCIÓN',
-            'FECHA DE REGISTRO',
-            'HORA DE REGISTRO',
-            'NoC.',
-            'CAPACITACIÓN',
-            'FIRMA DE ASISTENCIA',
+            'NOMBRE DE EXAMEN',
+            'EXAMEN TIPO',
+            'NOMBRE DE USUARIO',
+            'CAL.PRE',
+            'CAL.POS',
+            'PROMEDIO',
         ];
     }
 
@@ -57,7 +43,7 @@ class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEve
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:J1'; // All headers
+                $cellRange = 'A1:G1'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(9);
             },
         ];
@@ -65,13 +51,7 @@ class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEve
 
     public function query()
     {
-        return listaases::query()->where('capacitacion', $this->name);
+        return Calis::query()->where('examen', $this->name);
     }
-
-    
-
    
 }
-
-
-

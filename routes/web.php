@@ -92,6 +92,11 @@ Route::post('calificacion','ExamenController@calificacion')->name('calificacion'
 
  Route::get('AsistenciasGenerales/export/', 'Asistencia@exportcomplete')->name('exportcomplete');
 
+// reporte General de Calificaciones
+ Route::get('Reportecal', 'ExamenController@exportcalificacion')->name('exportcalificacion');
+ Route::get('exportbycriterio', 'ExamenController@exportbycriterio')->name('exportbycriterio');
+
+//
  Route::get('excel', function (AsistenciasExport $asistenciasExport ){
 
 // $asistenciasExport->store('Asistencias.xlsx','public'); 

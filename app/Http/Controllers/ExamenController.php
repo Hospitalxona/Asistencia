@@ -6,10 +6,14 @@ use App\Examens;
 use App\Calificaciones;
 use Sentinel;
 use App\Details;
+use App\Calis;
 use DB;
 use Session;
 
 use Illuminate\Http\Request;
+use App\Exports\CalisExport;
+use App\Exports\CaliscriExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExamenController extends Controller
 {
@@ -182,10 +186,21 @@ class ExamenController extends Controller
         FROM calificaciones AS cal
         INNER JOIN users AS us ON us.id=cal.idu
         INNER JOIN examens AS ex ON ex.id= cal.ide");
-        return view('calificacionesread')
-        ->with('con',$con);
-
         return view('calificacionesread',compact('con'));
+    }
+
+    public function exportcalificacion() 
+    {
+        return Excel::download(new CalisExport, 'Reporte-Gralcalificación.xlsx');
+    }
+
+    public function exportbycriterio(Request $request) 
+    {
+
+        $nombre = $request->get('buscador');
+
+        // return Excel::download(new AsistenciasExport, 'Asistencias.xlsx');
+        return (new CaliscriExport($nombre))->download('Reporte-PorExamen.xlsx');
     }
 
 }
