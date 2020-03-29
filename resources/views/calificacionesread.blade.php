@@ -111,7 +111,7 @@ $(document).ready(function() {
         <th scope="col"><font color="#25BD7C">Usuario</font></th>
         <th scope="col"><font color="#25BD7C">Cal. Pre</font></th>
         <th scope="col"><font color="#25BD7C">Cal. Post</font></th>
-        <th scope="col"><font color="#25BD7C">Pormedio</font></th>
+        <th scope="col"><font color="#25BD7C">Promedio</font></th>
         <th scope="col"><font color="#25BD7C">Acciones</font></th>
       </tr>
     </thead>
@@ -123,7 +123,7 @@ $(document).ready(function() {
           {{csrf_field()}}
         <th scope="row" >
           
-          <input type="text" size="3" style="height:30px; text-align: center;" 
+          <input type="text" size="3" style="height:30px; text-align: center" 
           name="id"  value="{{  $co->id }}" readonly>
         </th>
         <th>{{ $co->title }}</th>
@@ -132,7 +132,7 @@ $(document).ready(function() {
     <th>
       <center>
      
-      <input type="number" style="text-align: center;" class="form-control" name="calpre"  value="{{ $co->calpre }}"  min="0" max="10">
+      <input type="number" style="text-align: center; " class="form-control" name="calpre"  value="{{ $co->calpre }}"  min="0" max="10">
       </center>
     </th>
     <th>
@@ -141,11 +141,18 @@ $(document).ready(function() {
     </center>
     </th>
 
-    <th style="text-align: center;">{{$co->promedio}} </th>
+    <th>
+
+      <input type="text" size="3" style="text-align: center; background-color: #F4ECF7;" class="form-control"  name="pro" 
+      value="{{$co->promedio}}" readonly>
+
+      
+
+    </th>
 
         <th>
 
-          <button type="submit"  class="btn btn-success btn-sm btn-block"><strong>Guardar</strong></button>
+          <button type="submit"  class="btn btn-success btn-block"><strong>Guardar</strong></button>
                 
         </th>
        

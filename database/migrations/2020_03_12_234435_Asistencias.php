@@ -18,6 +18,7 @@ class Asistencias extends Migration
             $table->string('user');
             $table->date('fecha');
             $table->time('hora');
+            $table->time('salida');
             $table->unsignedInteger('id');
             $table->timestamps();
         });

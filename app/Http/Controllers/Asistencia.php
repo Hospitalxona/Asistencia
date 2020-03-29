@@ -40,13 +40,31 @@ class Asistencia extends Controller
 
        $id = $request->capacitacion;
 
-       $asis = new Asistencias;
-       $asis->user = $request->caja_valor;
-       $asis->fecha = $request->fecha;
-       $asis->hora = $request->time;
-       $asis->id = $request->capacitacion;
-       $asis->save();
+       $valor  = $request->get('caja_valor');
+       $asistencia = DB::table('asistencias')->where('user', $valor)->exists();
 
+      
+    if($asistencia == $valor)
+    {
+        $updated = \DB::update('update asistencias set salida=? 
+        where user=?',[$request->time,$valor]);
+    }
+
+    else
+    {
+        $asis = new Asistencias;
+        $asis->user = $request->caja_valor;
+        $asis->fecha = $request->fecha;
+        $asis->hora = $request->time;
+        $asis->id = $request->capacitacion;
+        $asis->save();
+    }
+       
+
+        
+	    
+        
+  
     $capacitacion=\DB::select("SELECT asi.`ida` AS ida, asi.`user` AS 'user', asi.`id` AS id
     FROM asistencias AS asi
     ORDER BY asi.`ida` DESC LIMIT 1");

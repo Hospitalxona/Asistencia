@@ -134,7 +134,8 @@ $(document).ready(function() {
 
         <div class="col-sm-offset-4 col-sm-6">
             <button type="submit"  class="btn btn-success btn-lg btn-block">
-            <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+            {{-- <i class="fa fa-floppy-o" aria-hidden="true"></i> --}}
+             Guardar
             </button>
         </div>
 
@@ -182,7 +183,7 @@ $(document).ready(function() {
         
         <th>
             <a href="{{URL::action('ExamenController@changeStatus',['id'=>$exa->id])}}" style="color:aliceblue;" class="btn btn-success btn-md">
-                <i class="fa fa-floppy-o" aria-hidden="true"> Activo</i></a>
+                <i class="fa fa-check" aria-hidden="true"></i> Activo</i></a>
 
         
             <a href="{{URL::action('ExamenController@inactiveStatus',['id'=>$exa->id])}}" style="color:aliceblue;"  class="btn btn-danger  btn-md">
