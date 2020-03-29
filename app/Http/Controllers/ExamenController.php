@@ -93,17 +93,20 @@ class ExamenController extends Controller
 
     public function showExampre(){
 
-
         $user=  Sentinel::getUser()->id;
-        
-
         $examens = Examens::all();
-        
-
-            return view('examenpre',compact('examens'));
+        return view('examenpre',compact('examens'));
         
         // dd($cali);
     }
+
+
+    public function showExampos(){
+
+        $examens = Examens::all();
+        return view('exampos',compact('examens'));
+    }
+
 
     public function createCal(Request $request){
 
@@ -129,12 +132,36 @@ class ExamenController extends Controller
             $cal->estatus='contestado';
             $cal->save();
             return redirect('exito');
-        }
-
-
-
-       
+        }   
     }
+
+    public function createCalpos(Request $request){
+
+        $ide  = $request->get('ide');
+        $idu  =  $request->get('idu');
+   
+           
+        $cali = DB::table('calificaciones')->where('ide', $ide)->exists();
+   
+        $cali2 = DB::table('calificaciones')->where('idu', $idu)->exists();
+   
+   
+          if($cali == $ide && $cali2 == $idu)
+           {
+               return redirect()->route('confirmacionpos');
+           }
+           else{
+   
+               $cal= new Calificaciones();
+               $cal->title=$request->get('title');
+               $cal->ide=$request->get('ide');
+               $cal->idu=$request->get('idu');
+               $cal->estatus='contestado';
+               $cal->save();
+               return redirect('exitopos');
+           }          
+       }
+
 
     public function confirmacion(){
 
@@ -146,21 +173,26 @@ class ExamenController extends Controller
         return view('exito');
     }
 
-    public function showExampos(){
+    public function confirmacionpos(){
 
-        $examens = Examens::all();
-        return view('exampos',compact('examens'));
+        return view('confirmacionpos');
     }
 
-    public function createCalpos(Request $request){
+    public function exitopos(){
 
-        $cal= new Calificaciones();
-        $cal->title=$request->get('title');
-        $cal->ide=$request->get('ide');
-        $cal->idu=$request->get('idu');
-        $cal->estatus='contestado';
-        $cal->save();
-        return redirect('showExampos')->with('success', 'Examen ha sido agregado');
+        return view('exitopos');
+    }
+
+   
+    public function showcal(){
+
+        
+        $con=\DB::select("SELECT cal.id AS id,cal.title AS title ,ex.tipo AS tipo,CONCAT( us.first_name,' ', us.last_name) AS usuario,cal.calpre AS calpre,cal.calpos AS calpos,cal.promedio AS promedio
+        FROM calificaciones AS cal
+        INNER JOIN users AS us ON us.id=cal.idu
+        INNER JOIN examens AS ex ON ex.id= cal.ide");
+        return view('calificacionesread',compact('con'));
+
     }
 
     public function calificacion(Request $request){
@@ -179,15 +211,7 @@ class ExamenController extends Controller
 
     }
 
-    public function showcal(){
-
-        
-        $con=\DB::select("SELECT cal.id AS id,cal.title AS title ,ex.tipo AS tipo,CONCAT( us.first_name,' ', us.last_name) AS usuario,cal.calpre AS calpre,cal.calpos AS calpos,cal.promedio AS promedio
-        FROM calificaciones AS cal
-        INNER JOIN users AS us ON us.id=cal.idu
-        INNER JOIN examens AS ex ON ex.id= cal.ide");
-        return view('calificacionesread',compact('con'));
-    }
+   
 
     public function exportcalificacion() 
     {

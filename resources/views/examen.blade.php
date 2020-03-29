@@ -3,7 +3,7 @@
 @extends('backLayout.app')
 @section('title')
 
-Capacitaciones
+Examenes
 
 @stop
 @section('content')
@@ -100,7 +100,7 @@ $(document).ready(function() {
            <select class="form-control" name="tipo" id="tipo">
                <option value=""></option>
                <option value="pre">Pre</option>
-               <option value="pos">Post</option>
+               <option value="pos">Pos</option>
            </select>
 
             </div>
@@ -121,7 +121,7 @@ $(document).ready(function() {
         <div class="input-group">
 
         <span class="input-group-addon"><i class="fa fa-code  fa-2x" aria-hidden="true"></i></span>
-            <textarea name="iframe"    id="editor" rows="6" class="form-control" placeholder="Ingresa el contenido embebido (iframe) de audio o video"></textarea>
+            <textarea name="iframe"    id="editor" rows="6" class="form-control" placeholder="Ingresa el contenido embebido (iframe)"></textarea>
 
         </div>
 
@@ -180,13 +180,14 @@ $(document).ready(function() {
        
 
         
-        <th><button type="button" class="btn btn-success btn-md" >
-            <a href="{{URL::action('ExamenController@changeStatus',['id'=>$exa->id])}}" style="color:aliceblue;">
-                <i class="fa fa-floppy-o" aria-hidden="true"> Activo</i></a></button>
+        <th>
+            <a href="{{URL::action('ExamenController@changeStatus',['id'=>$exa->id])}}" style="color:aliceblue;" class="btn btn-success btn-md">
+                <i class="fa fa-floppy-o" aria-hidden="true"> Activo</i></a>
 
-        <button type="button" class="btn btn-danger  btn-md" >
-            <a href="{{URL::action('ExamenController@inactiveStatus',['id'=>$exa->id])}}" style="color:aliceblue;">
-                <i class="fa fa-times" aria-hidden="true"> Inactivo</i></a></button></th>
+        
+            <a href="{{URL::action('ExamenController@inactiveStatus',['id'=>$exa->id])}}" style="color:aliceblue;"  class="btn btn-danger  btn-md">
+                <i class="fa fa-times" aria-hidden="true"> Inactivo</i></a>
+        </th>
       </tr> 
       @endforeach
     </tbody>
