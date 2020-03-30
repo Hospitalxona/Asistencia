@@ -46,21 +46,37 @@ class Asistencia extends Controller
        $id = $request->capacitacion;
 
   
+       
+
+        $user  = $request->get('caja_valor');
+        $asistencia = DB::table('asistencias')->where('user', $user)->exists();
+
+        $capa  = $request->get('capacitacion');
+        $asiscapa = DB::table('asistencias')->where('id', $capa)->exists();
+ 
+       
+     if($asistencia == $user && $asiscapa == $capa )
+     {
+        echo "<script>";
+        echo "alert('Usted ya esta registrado en esta capacitación');";
+        echo "</script>";
+     }
+     else
+     {
         $asis = new Asistencias;
         $asis->user = $request->caja_valor;
         $asis->fecha = $request->fecha;
         $asis->hora = $request->time;
         $asis->id = $request->capacitacion;
         $asis->save();
-       
-
-        
+     }
+    
 	    
         
   
     $capacitacion=\DB::select("SELECT asi.`ida` AS ida, asi.`user` AS 'user', asi.`id` AS id
     FROM asistencias AS asi
-    ORDER BY asi.`ida` DESC LIMIT 1");
+    WHERE asi.`id` = ?",[$id]);
 
     $nombre=\DB::select("SELECT nombre AS nombre
     FROM capacitaciones WHERE id = ?",[$id]);
@@ -94,26 +110,22 @@ class Asistencia extends Controller
 
        $id = $request->capacitacion;
 
-       $valor  = $request->get('caja_valor');
-       $asistencia = DB::table('asistencias')->where('user', $valor)->exists();
+       $user  = $request->get('caja_valor');
+       $asistencia = DB::table('asistencias')->where('user', $user)->exists();
+
+       $capa  = $request->get('capacitacion');
+       $asiscapa = DB::table('asistencias')->where('id', $capa)->exists();
+
+
 
       
-    if($asistencia == $valor)
+    if($asistencia == $user && $asiscapa == $capa)
     {
-        $updated = \DB::update('update asistencias set salida=? 
-        where user=?',[$request->time,$valor]);
+        $updated = \DB::update('update asistencias set salida=? where user=? and id=?',
+        [$request->time,$user,$capa]);
     }
+    
 
-    else
-    {
-        $asis = new Asistencias;
-        $asis->user = $request->caja_valor;
-        $asis->fecha = $request->fecha;
-        $asis->hora = $request->time;
-        $asis->id = $request->capacitacion;
-        $asis->save();
-    }
-       
 
         
 	    
@@ -121,7 +133,7 @@ class Asistencia extends Controller
   
     $capacitacion=\DB::select("SELECT asi.`ida` AS ida, asi.`user` AS 'user', asi.`id` AS id
     FROM asistencias AS asi
-    ORDER BY asi.`ida` DESC LIMIT 1");
+    WHERE asi.`id` = ?",[$id]);
 
     $nombre=\DB::select("SELECT nombre AS nombre
     FROM capacitaciones WHERE id = ?",[$id]);
