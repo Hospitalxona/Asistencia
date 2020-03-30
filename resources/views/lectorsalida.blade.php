@@ -1,7 +1,7 @@
 @extends('frontLayout.app')
 @section('title')
 
-Asistencía
+Asistencía | Salida
 
 @stop
 @section('content')
@@ -109,42 +109,40 @@ b{
 
     
 
-    <form role="form" method="POST" action="{{ route('crear') }}">
+    <form role="form" method="POST" action="{{ route('crearsalida') }}">
         {{ csrf_field() }}
     
         <div class="form-row">
-         
+          <div class="col-md-1 mb-3">
 
-            <div class="col-md-1 ">
         <strong> <input class="form-control" style="color:#006D6C;" type="text" name="capacitacion" id="capa" value="{{$capacitacion->id}}" readonly></strong>
 
           </div>
         </div>
 
-        <div class="col-md-4 ">
+        <div class="col-md-4 mb-3">
 
 
         <strong> <input class="form-control" style="color:#006D6C;" type="text" name="nombreca" id="nombreca" value="{{$nombre->nombre}}" readonly></strong>
         
         </div>
 
-        <div class="col-md-2 ">
+        <div class="col-md-2 mb-3">
 
           <strong> <input class="form-control" style="color:#006D6C;" type="text" name="fecha" id="fecha" value="{{$date}}" readonly></strong>
           
           </div>
 
-          <div class="col-md-2 ">
+          <div class="col-md-2 mb-3">
 
             <strong> <input class="form-control" style="color:#006D6C;" type="text" name="time" id="time" value="{{$time}}" readonly></strong>
             
             </div>
 
-            <div class="col-md-2 ">
+            <div class="col-md-3 mb-3">
 
-              <strong> <input class="form-control" style="color:#006D6C;" type="text" name="asis" id="asis" value="Asistencia" readonly></strong>
+              <strong> <input class="form-control" style="color:#006D6C;" type="text" name="asis" id="asis" value="Registro de Salida" readonly></strong>
               
-            
               </div>
 
           
@@ -153,11 +151,9 @@ b{
 
         <input type="submit" value="limpiar" id="guarda" hidden>
         </form>
-
 <br>
-<br> 
-      
-
+<br>
+        
 <div align="center">
 
               
@@ -172,7 +168,7 @@ b{
       <input type="text" name="dato" id="dato" value="" hidden>
 
     <div class="alert alert-primary" role="alert"  id="registro">
-    <strong> " Usuarios"</strong> <b>registrados a la capacitación. </b>
+    <strong> " Registro"</strong> <b>de "salida". </b>
     </div>
 
 </div>
@@ -203,7 +199,7 @@ b{
             usuarios = content;
             document.getElementById('dato').value= usuarios;
             console.log(usuarios);
-            document.getElementById('registro').innerHTML ="<button type='button' class='btn btn-success btn-lg btn-block' >Acceso Correcto <span class='badge badge-light'>+</span></button>";
+            document.getElementById('registro').innerHTML ="<button type='button' class='btn btn-warning btn-lg btn-block' >Acceso Correcto <span class='badge badge-light'>+</span></button>";
             document.getElementById("caja_valor").value = usuarios;
             document.getElementById("guarda").click();
             beep();

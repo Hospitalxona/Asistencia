@@ -46,8 +46,11 @@ Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
  Route::get('capacitaciones','capacitacion@listacapacitacion')->name('listacapacitacion');
  Route::get('asistencia','Asistencia@asistencia')->name('asistencia');
  Route::get('iniciarcapa/{id}', 'capacitacion@iniciarcapa')->name('iniciarcapa');
+ Route::get('salidacapa/{id}', 'capacitacion@salidacapa')->name('salidacapa');
  Route::get('lector','Asistencia@lector')->name('lector');
+ Route::get('lectorsalida','Asistencia@lectorsalida')->name('lectorsalida');
  Route::post('crear','Asistencia@crear')->name('crear');
+ Route::post('crearsalida','Asistencia@crearsalida')->name('crearsalida');
  Route::get('desactivarcapa/{id}','capacitacion@desactivarcapa')->name('desactivarcapa'); //desactivatr capacitación
  Route::get('buscarasistencia/', 'Asistencia@buscarasistencia')->name('buscarasistencia'); 
 

@@ -46,6 +46,7 @@ class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEve
             'FUNCIÓN',
             'FECHA DE REGISTRO',
             'HORA DE REGISTRO',
+            'HORA DE SALIDA',
             'NoC.',
             'CAPACITACIÓN',
             'FIRMA DE ASISTENCIA',
@@ -57,7 +58,7 @@ class AsistenciasExport implements FromQuery,ShouldAutoSize,WithHeadings,WithEve
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:J1'; // All headers
+                $cellRange = 'A1:K1'; // All headers
                 $event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(9);
             },
         ];

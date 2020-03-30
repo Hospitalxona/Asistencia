@@ -24,7 +24,61 @@ class Asistencia extends Controller
         return view('lector');
     }
 
+    public function lectorsalida()
+    {
+        return view('lectorsalida');
+    }
+
     public function crear(Request $request)
+    {
+
+         //validaciones del formulario
+  
+
+       $date = Carbon::now();
+
+       $time = Carbon::now();
+
+       $date = $date->format('Y-m-d');
+
+       $time = $time->toTimeString();  
+
+       $id = $request->capacitacion;
+
+  
+        $asis = new Asistencias;
+        $asis->user = $request->caja_valor;
+        $asis->fecha = $request->fecha;
+        $asis->hora = $request->time;
+        $asis->id = $request->capacitacion;
+        $asis->save();
+       
+
+        
+	    
+        
+  
+    $capacitacion=\DB::select("SELECT asi.`ida` AS ida, asi.`user` AS 'user', asi.`id` AS id
+    FROM asistencias AS asi
+    ORDER BY asi.`ida` DESC LIMIT 1");
+
+    $nombre=\DB::select("SELECT nombre AS nombre
+    FROM capacitaciones WHERE id = ?",[$id]);
+
+    //    return redirect()->route('lector')
+       return view('lector')
+       ->with("capacitacion",$capacitacion[0])
+       ->with("nombre",$nombre[0])
+       ->with("date",$date)
+       ->with("time",$time);
+
+
+
+    // dd($post);
+    }
+
+
+    public function crearsalida(Request $request)
     {
 
          //validaciones del formulario
@@ -73,7 +127,7 @@ class Asistencia extends Controller
     FROM capacitaciones WHERE id = ?",[$id]);
 
     //    return redirect()->route('lector')
-       return view('lector')
+       return view('lectorsalida')
        ->with("capacitacion",$capacitacion[0])
        ->with("nombre",$nombre[0])
        ->with("date",$date)
@@ -86,8 +140,8 @@ class Asistencia extends Controller
 
     public function asistencia()
     {
-        $asis = \DB::select("SELECT asi.`ida` AS ida,us.`first_name` AS Nombre,us.`last_name` AS apellido,us.`email` AS correo,ro.name AS 'role',
-        asi.`fecha` AS fecha,asi.`hora` AS hora,ca.`id` AS id,ca.`nombre` AS capacitacion
+        $asis = \DB::select("SELECT asi.`ida` AS ida,us.`first_name` AS Nombre,us.`last_name` AS apellido,us.`email` AS correo,ro.name AS 'role',asi.`fecha` AS fecha,asi.`hora` AS hora,
+         asi.`salida` AS salida,ca.`id` AS id,ca.`nombre` AS capacitacion
         FROM asistencias AS asi
         INNER JOIN capacitaciones AS ca ON ca.`id`=asi.`id`
         INNER JOIN users AS us ON us.`QRpassword`=asi.`user`
@@ -98,19 +152,7 @@ class Asistencia extends Controller
 
     }
 
-    // public function buscarasistencia(Request $request)
-    // {
-
-    //     $nombre = $request->get('buscador');
-
-    //     $asis = \DB::select("SELECT asi.`ida` AS ida,asi.`user` AS 'user',asi.`fecha` AS fecha, asi.`hora` AS hora,ca.`id` AS id,ca.`nombre` AS nombre
-    //     FROM asistencias AS asi
-    //     INNER JOIN capacitaciones AS ca ON ca.`id`= asi.`id`
-    //     WHERE ca.`nombre` = ?",[$nombre]);
-    //     return view('asistenciacapaci')
-    //     ->with('asis',$asis);
-    // }
-
+ 
     public function export(Request $request) 
     {
 

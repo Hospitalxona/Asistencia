@@ -87,6 +87,7 @@ $(document).ready(function() {
         <th scope="col"><font color="#900C3F  ">Lugar</font></th>
         <th scope="col"><font color="#900C3F  ">Comenzar</font></th>
         <th scope="col"><font color="#900C3F  ">Finalizar</font></th>
+        <th scope="col"><font color="#900C3F  ">Terminar</font></th>
         
       </tr>
     </thead>
@@ -99,9 +100,12 @@ $(document).ready(function() {
         <th>{{$lis->hora}}</th>
         <th>{{$lis->lugar}}</th>
         
-        <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}" id="ini"><i class="fa fa-play" aria-hidden="true"> Iniciar</i></a></button></th>
+        <th><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}" id="ini" class="btn btn-primary btn-block"><i class="fa fa-play" aria-hidden="true"> </i></a></th>
 
-        <th><button type="button" class="btn btn-danger" ><a href="{{URL::action('capacitacion@desactivarcapa',['id'=>$lis->id])}}" id="fin"><i class="fa fa-times" aria-hidden="true"> Finalizar</i></a></button></th>
+        <th><a href="{{URL::action('capacitacion@salidacapa',['id'=>$lis->id])}}" id="fin" class="btn btn-warning btn-block"><i class="fa fa-pause" aria-hidden="true"> </i></a></th>
+
+
+        <th><a href="{{URL::action('capacitacion@desactivarcapa',['id'=>$lis->id])}}" id="ter" class="btn btn-danger btn-block"><i class="fa fa-times" aria-hidden="true"> </i></a></th>
       </tr>
       @endforeach
     </tbody>

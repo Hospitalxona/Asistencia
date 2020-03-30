@@ -55,6 +55,18 @@
 
     
     @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
+    <li><a><i class="fa fa-file-text" aria-hidden="true"></i> Lista de Asistencia <span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        
+        <li><a href="{{route('asistencia')}}">
+          <i class="fa fa-check-square-o" aria-hidden="true"></i> Usuarios Registrados</a></li>
+
+      </ul>
+    </li>
+  @endif
+
+  
+    @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
     <li><a><i class="fa fa-calendar-o" aria-hidden="true"></i> Eventos y Cursos <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         
@@ -69,17 +81,6 @@
     </li>
   @endif
 
-
-    @if (Sentinel::getUser()->hasAnyAccess(['user.*']))
-    <li><a><i class="fa fa-file-text" aria-hidden="true"></i> Lista de Asistencia <span class="fa fa-chevron-down"></span></a>
-      <ul class="nav child_menu">
-        
-        <li><a href="{{route('asistencia')}}">
-          <i class="fa fa-check-square-o" aria-hidden="true"></i> Usuarios Registrados</a></li>
-
-      </ul>
-    </li>
-  @endif
 
   
   @if (Sentinel::getUser()->hasAnyAccess(['user.*']))

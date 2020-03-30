@@ -118,6 +118,7 @@ $(document).ready(function() {
         <th scope="col"><font color="#900C3F">Correo</font></th>
         <th scope="col"><font color="#900C3F">Fecha de Registro</font></th>
         <th scope="col"><font color="#900C3F">Hora de Ingreso</font></th>
+        <th scope="col"><font color="#900C3F">Hora de Salida</font></th>
         <th scope="col"><font color="#900C3F">Capacitación</font></th>
         {{-- <th scope="col"><font color="#900C3F  ">Comenzar</font></th>
         <th scope="col"><font color="#900C3F  ">Finalizar</font></th> --}}
@@ -133,11 +134,8 @@ $(document).ready(function() {
         <th>{{$asi->correo}}</th>
         <th>{{$asi->fecha}}</th>
         <th>{{$asi->hora}}</th>
+        <th>{{$asi->salida}}</th>
         <th>{{$asi->capacitacion}}</th>
-        
-        {{-- <th><button type="button" class="btn btn-primary" ><a href="{{URL::action('capacitacion@iniciarcapa',['id'=>$lis->id])}}"><i class="fa fa-play" aria-hidden="true"> Iniciar</i></a></button></th>
-
-        <th><button type="button" class="btn btn-danger" ><a href="{{URL::action('capacitacion@desactivarcapa',['id'=>$lis->id])}}"><i class="fa fa-times" aria-hidden="true"> Finalizar</i></a></button></th> --}}
       </tr>
       @endforeach
     </tbody>
