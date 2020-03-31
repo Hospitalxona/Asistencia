@@ -12,7 +12,7 @@ View User Qr Code
   <br>
   <p> Este es tu Código QR , Descargalo en tu dispositivo</p>
   @endif
-  <button type="submit" id="autogenerate_qr" class="btn btn-default sub6">Cámbialo Ahora</button>
+  <button type="submit" id="autogenerate_qr" class="btn btn-primary">Cámbialo Ahora</button>
 </div>
 
 <!--   end qr code -->
