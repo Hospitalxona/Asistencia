@@ -5,7 +5,12 @@
 @stop
 
 @section('style')
-
+<style>
+    #ti{
+        text-size-adjust: auto;
+        font-size: 5em;
+    }
+</style>
 @stop
 @section('content')
 
@@ -25,12 +30,12 @@
     @endif
     
 
-<div class="title m-b-md">
+<div class="title m-b-md" id="ti">
     
 Control de Asistencia  <i class="fa fa-qrcode fa-1x" aria-hidden="true"> QR</i>
 
 <a href="#">
-<img src="{{ URL::asset('/images/capa.jpg') }}" alt="" title="Nosotros te Capacitamos">
+<img src="{{ URL::asset('/images/capa.jpg') }}" alt="" title="Nosotros te Capacitamos" width="550em">
 </a>
 
 </div>
@@ -40,7 +45,6 @@ Control de Asistencia  <i class="fa fa-qrcode fa-1x" aria-hidden="true"> QR</i>
             <a href="#"><i class="fa fa-instagram  fa-3x" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-twitter  fa-3x" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></i></a>
-            <a href="#"><i class="fa fa-whatsapp fa-3x" aria-hidden="true"></i></a>
         </div>
 
 </div>
