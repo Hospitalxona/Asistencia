@@ -10,6 +10,8 @@ Asistencía
     <title>Instascan</title>
      <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" >
     </script>	
+{{-- 
+    <script type="text/javascript" src="{{ asset('/js/instascan.js') }}"></script> --}}
 
     
 
@@ -187,7 +189,7 @@ b{
 
     
    
-  
+{{--   
 
 <script type="text/javascript">
 
@@ -214,10 +216,6 @@ b{
         }); 
 
     
-
-        
-
-        
         Instascan.Camera.getCameras().then(cameras => 
         {
             if(cameras.length > 0){
@@ -226,7 +224,34 @@ b{
                 console.error("No se encuentra ninguna coincidencia!");
             }
         });
-    </script>
+    </script> --}}
+
+<script type="text/javascript">
+
+var usuarios;
+
+
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  scanner.addListener('scan', function (content) {
+    // console.log(content);
+    usuarios = content;
+            document.getElementById('dato').value= usuarios;
+            console.log(usuarios);
+            document.getElementById('registro').innerHTML ="<button type='button' class='btn btn-success btn-lg btn-block' >Acceso Correcto <span class='badge badge-light'>+</span></button>";
+            document.getElementById("caja_valor").value = usuarios;
+            document.getElementById("guarda").click();
+            beep();
+  });
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+</script>
 
 
 <script>
