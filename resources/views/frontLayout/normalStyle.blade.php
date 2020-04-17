@@ -6,11 +6,15 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>@yield('title')</title>
-	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/flatly/bootstrap.min.css" rel="stylesheet">
-	<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <title>@yield('title')</title>
+    
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
 	<link href="css/style.css" rel="stylesheet">
 	<!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -74,41 +78,82 @@
 	@yield('style')
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-	    <div class="container">
-	        <!-- Brand and toggle get grouped for better mobile display -->
-	        <div class="navbar-header">
-	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-	                <span class="sr-only">Toggle navigation</span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	            </button>
-                <a class="navbar-brand" id="an" href="{{url('/')}}">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                   
+                <a class="navbar-brand" href="{{url('/')}}">
                     <i class="fa fa-university" aria-hidden="true"></i> Inicio</a>
-	        </div>
+	        
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav ml-auto">
 
-			<div class="collapse navbar-collapse" id="navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-                  
+                    @if (!Sentinel::getUser())
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('event') }}">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a>
+                            </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('login') }}">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar sesión</a>
+                        </li>
+                        {{-- <li><a href="{{ url('qrLogin') }}">Qr Login</a></li> --}}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('register') }}">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse</a>
+                        </li>
+                     @endif
+
+					 @if ($user=Sentinel::getUser())
+                    {{-- $user=Sentinel::getUser(); --}}
+                     @if ($user->inRole('admin'))
+
+                     
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('event') }}">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url('my-qrcode')}}">
+                            <i class="fa fa-hospital-o" aria-hidden="true"></i> Panel de Control</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('capacitaciones') }}">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Capacitaciones</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url('user/logout/now')}}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
+                        </li>
+                    
+                    @endif
+                    @endif
+
                     @if ($user=Sentinel::getUser())
                     @if (!$user->inRole('admin'))
         
-                    <li><a href="{{ url('eventPublic') }}">
-                     <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
-                     <li><a href="{{url('my-qrcode')}}">
-                        <i class="fa fa-hospital-o" aria-hidden="true"></i> Control</a></li>
-                    <li><a href="{{url('user/logout/now')}}">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('eventPublic') }}">
+                     <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a>
+                    </li>
+                     <li class="nav-item active">
+                         <a class="nav-link" href="{{url('my-qrcode')}}">
+                        <i class="fa fa-hospital-o" aria-hidden="true"></i> Control</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  class="nav-link" href="{{url('user/logout/now')}}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
+                    </li>
+          
                    
                   @endif
                   @endif
 
-				</ul>
-			</div>
 
-	    </div><!-- /.container-fluid -->
-	</nav>
+                </ul>
+              </div>
+            </nav>
 
 	<div class="container">
 		@yield('content')

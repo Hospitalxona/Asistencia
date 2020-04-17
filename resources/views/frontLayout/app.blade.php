@@ -13,10 +13,11 @@
     {{-- Bootstrap --}}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.5/flatly/bootstrap.min.css" rel="stylesheet">
-	<link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     
@@ -63,7 +64,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: rebeccapurple;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -78,42 +79,41 @@
             body {
 			padding-top: 70px;
         }
-        
-        /* #foot{
 
-            background-color:ghostwhite;
-           
-        } */
+        .btn-link{
+            color: rebeccapurple;
+        }
+        
+ 
         </style>
 	@yield('style')
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-	    <div class="container">
-	        <!-- Brand and toggle get grouped for better mobile display -->
-	        <div class="navbar-header">
-	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-	                <span class="sr-only">Toggle navigation</span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	                <span class="icon-bar"></span>
-	            </button>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                   
                 <a class="navbar-brand" href="{{url('/')}}">
                     <i class="fa fa-university" aria-hidden="true"></i> Inicio</a>
-	        </div>
-
-			<div class="collapse navbar-collapse" id="navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
+	        
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav ml-auto">
 
                     @if (!Sentinel::getUser())
-        
-                       <li><a href="{{ url('event') }}">
-                        <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
-                        <li><a href="{{ url('login') }}">
-                            <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar sesión</a></li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('event') }}">
+                                <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a>
+                            </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('login') }}">
+                            <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar sesión</a>
+                        </li>
                         {{-- <li><a href="{{ url('qrLogin') }}">Qr Login</a></li> --}}
-                        <li><a href="{{ url('register') }}">
-                            <i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse</a></li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('register') }}">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse</a>
+                        </li>
                      @endif
 
 					 @if ($user=Sentinel::getUser())
@@ -121,14 +121,22 @@
                      @if ($user->inRole('admin'))
 
                      
-                        <li><a href="{{ url('event') }}">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
-                        <li><a href="{{url('my-qrcode')}}">
-                            <i class="fa fa-hospital-o" aria-hidden="true"></i> Panel de Control</a></li>
-                        <li><a href="{{ url('capacitaciones') }}">
-                            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Capacitaciones</a></li>
-                        <li><a href="{{url('user/logout/now')}}">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('event') }}">
+                            <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url('my-qrcode')}}">
+                            <i class="fa fa-hospital-o" aria-hidden="true"></i> Panel de Control</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('capacitaciones') }}">
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i> Capacitaciones</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url('user/logout/now')}}">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
+                        </li>
                     
                     @endif
                     @endif
@@ -136,22 +144,27 @@
                     @if ($user=Sentinel::getUser())
                     @if (!$user->inRole('admin'))
         
-                    <li><a href="{{ url('eventPublic') }}">
-                     <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a></li>
-                     <li><a href="{{url('my-qrcode')}}">
-                        <i class="fa fa-hospital-o" aria-hidden="true"></i> Control</a></li>
-                    <li><a href="{{url('user/logout/now')}}">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('eventPublic') }}">
+                     <i class="fa fa-calendar" aria-hidden="true"></i> Calendario</a>
+                    </li>
+                     <li class="nav-item active">
+                         <a class="nav-link" href="{{url('my-qrcode')}}">
+                        <i class="fa fa-hospital-o" aria-hidden="true"></i> Control</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a  class="nav-link" href="{{url('user/logout/now')}}">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
+                    </li>
+          
                    
                   @endif
                   @endif
 
 
-				</ul>
-			</div>
-
-	    </div><!-- /.container-fluid -->
-	</nav>
+                </ul>
+              </div>
+            </nav>
 
 	<div class="container">
 		@yield('content')
@@ -160,15 +173,13 @@
 	<hr/>
 
 	<div class="container" id="foot">
-	    &copy; {{ date('Y') }}. <strong> Created by <a href="#"> B&D Solutions</a>
+	    &copy; {{ date('Y') }}. <strong> Created by <a href="#">B&DSolutions</a>
         </strong> 
             <br/>
 	</div>
 
 	<!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.map"></script> --}}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.20/js/jquery.dataTables.min.js"></script>
+
 	 <script type="text/javascript">
       $.ajaxSetup({
           headers: {

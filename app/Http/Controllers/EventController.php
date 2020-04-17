@@ -34,7 +34,7 @@ class EventController extends Controller
                     foreach ($data as $key => $value) 
                     {
                         $events[] = Calendar::event(
-                        $datac = ( $value->hora." ".$value->title), 
+                        $datac = ($value->title." ".$value->hora), 
                     
                             true,
                             new \DateTime($value->start_date),
@@ -62,7 +62,7 @@ class EventController extends Controller
                     foreach ($data as $key => $value) 
                     {
                         $events[] = Calendar::event(
-                        $datac = ( $value->hora." ".$value->title), 
+                        $datac = ($value->title." ".$value->hora), 
                     
                             true,
                             new \DateTime($value->start_date),
