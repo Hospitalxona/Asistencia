@@ -97,11 +97,21 @@
 
     </ul>
   </li>
+
 @endif
+
+
 
 @if ($user=Sentinel::getUser())
 @if (!$user->inRole('admin'))
+
   
+<li>
+  <a href="https://bydsolutions.com/public/documents/ManualNormalUser.pdf" target="_blank">
+     Manual de Usuario  <img src="{{ URL::asset('/images/pdf.webp') }}" alt="" width="30rem">
+    </a>
+ </li>
+
   <li><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     Examenes <span class="fa fa-chevron-down"></span></a>
   <ul class="nav child_menu">
@@ -119,7 +129,7 @@
                 <i class="fa fa-star-half-o" aria-hidden="true"></i>
               Calificaciones 
               </a>
-  </li>
+            </li>
   @endif
   @endif
 

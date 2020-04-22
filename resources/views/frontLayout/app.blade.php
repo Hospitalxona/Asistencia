@@ -120,6 +120,11 @@
                     {{-- $user=Sentinel::getUser(); --}}
                      @if ($user->inRole('admin'))
 
+                     <li class="nav-item active">
+                     <a class="nav-link" href="https://bydsolutions.com/public/documents/ManualAdminUser.pdf" target="_blank">
+                        Manual Administrador  <img src="{{ URL::asset('/images/pdf.webp') }}" alt="" width="30rem">
+                       </a>
+                    </li>
                      
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ url('event') }}">
@@ -143,6 +148,12 @@
 
                     @if ($user=Sentinel::getUser())
                     @if (!$user->inRole('admin'))
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://bydsolutions.com/public/documents/ManualNormalUser.pdf" target="_blank">
+                           Manual de Usuario  <img src="{{ URL::asset('/images/pdf.webp') }}" alt="" width="30rem">
+                          </a>
+                       </li>
         
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('eventPublic') }}">
