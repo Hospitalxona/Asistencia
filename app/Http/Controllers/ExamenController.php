@@ -195,6 +195,21 @@ class ExamenController extends Controller
 
     }
 
+    public function showcalpublic(){
+
+        $user=Sentinel::getUser()->id;
+        
+        $con=\DB::select("SELECT cal.id AS id,cal.title AS title ,ex.tipo AS tipo,us.first_name AS user, us.last_name AS apellido,cal.calpre AS calpre,cal.calpos AS calpos,cal.promedio AS promedio
+        FROM calificaciones AS cal
+        INNER JOIN users AS us ON us.id=cal.idu
+        INNER JOIN examens AS ex ON ex.id= cal.ide
+        WHERE us.id = ?",[$user]);
+        return view('calificacionusuario',compact('con'));
+
+        
+
+    }
+
     public function calificacion(Request $request){
 
         $id= $request->id;

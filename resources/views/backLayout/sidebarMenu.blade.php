@@ -112,7 +112,13 @@
           <li><a href="{{url('showExampos')}}">
             <i class="fa fa-file-text" aria-hidden="true"></i>Examenes Pos</a></li>
 
-    </ul>
+  </ul>
+
+            <li>
+              <a href="{{url('showcalpublic')}}">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              Calificaciones 
+              </a>
   </li>
   @endif
   @endif

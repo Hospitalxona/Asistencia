@@ -87,6 +87,7 @@ Route::resource('calificaciones', 'CalificacionesController');
 
 // new save calificaciones
 Route::get('showcal','ExamenController@showcal');
+Route::get('showcalpublic','ExamenController@showcalpublic')->name('showcalpublic');
 Route::post('calificacion','ExamenController@calificacion')->name('calificacion');
  
  // excel

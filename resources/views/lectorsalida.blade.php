@@ -118,7 +118,7 @@ b{
         <strong> <input class="form-control" style="color:#006D6C;" type="text" name="capacitacion" id="capa" value="{{$capacitacion->id}}" readonly></strong>
 
           </div>
-        </div>
+    
 
         <div class="col-md-4 mb-3">
 
@@ -145,7 +145,7 @@ b{
               
               </div>
 
-          
+            </div>
   
         <input type="text" name="caja_valor" id="caja_valor" value="" hidden>
 
