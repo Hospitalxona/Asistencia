@@ -7,7 +7,7 @@
     "require": {
         "php": ">=7.0",
         "cartalyst/sentinel": "2.0.*",
-        "dompdf/dompdf": "^0.8.5",
+        "dompdf/dompdf": "^2.0.2",
         "dragonmantank/cron-expression": "^2.3",
         "filp/whoops": "~2.0",
         "laravel/framework": "5.5.*",
